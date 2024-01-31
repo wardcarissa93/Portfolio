@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    font-family: 'Fira Sans', 'sans-serif';
+}
+
+main {
+    display: flex;
+    font-family: 'Fira Sans', 'sans-serif';
+
+    .projects {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 90%;
+
+        .hidden {
+            display: none;
+        }
+
+        @media (min-width: 960px) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    
+        div {
+            padding: 1rem;
+    
+            .category-name, .tag-names {
+                font-size: 12px;
+            }
+        }
+    }
+
+    .filters {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 7rem;
+        border-left: 1px solid black;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .category-filters, 
+            .tag-filters {
+                border: 2px solid transparent;
+                padding: 5px;
+                cursor: pointer;
+                width: 4.5rem;
+                height: 1rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 0.5rem;
+                border-radius: 5px;
+
+                &.active {
+                    border-color: red;
+                }
+            }
+        }
+
+        button {
+            margin-top: 1rem;
+        }
+    }
+}
+
+footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 3rem;
+    font-family: 'Fira Sans', 'sans-serif';
+}
+
