@@ -38,6 +38,7 @@ main {
     
             .category-name, .tag-names {
                 font-size: 12px;
+                cursor: pointer;
             }
         }
     }
@@ -70,6 +71,11 @@ main {
 
                 &.active {
                     border-color: red;
+                }
+
+                a {
+                    width: 100%;
+                    text-align: center;
                 }
             }
         }
