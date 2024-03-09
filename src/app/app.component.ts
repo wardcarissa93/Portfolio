@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+
 import { ProjectFilterPipe } from './project-filter.pipe';
 
 // Class definition for 'Category'
