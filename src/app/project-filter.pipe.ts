@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Project, Tag } from './app.component';
+import { Project } from './models/project';
+import { Tag } from './models/tag';
 
 @Pipe({
   name: 'projectFilter',
@@ -14,7 +15,7 @@ export class ProjectFilterPipe implements PipeTransform {
 
     return projects.filter((project) => {
       // Check if the project has the selected tag
-      return project.tags.some((projectTag) => projectTag.id === tag.id);
+      return project.tags.some((projectTag: Tag) => projectTag.id === tag.id);
     });
   }
 }
