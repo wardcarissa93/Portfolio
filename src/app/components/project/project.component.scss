@@ -1,0 +1,10 @@
+#project-detail-div {
+
+    &.hidden {
+        display: none;
+    }
+
+    .category-name, .tag-names {
+        font-size: 12px;
+    }
+}

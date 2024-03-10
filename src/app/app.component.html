@@ -2,13 +2,18 @@
   <h1>{{ author }}'s {{ title }}</h1>
 </header>
 <main>
-  <section class="projects">
+  <section class="projects" id="projects" *ngIf="!selectedProject">
     <app-projects
       [categoryFilter]="categoryFilter"
       (newCategoryFilterEvent)="setCategoryFilter($event)"
       [tagFilter]="tagFilter"
       (newTagFilterEvent)="setTagFilter($event)"
+      (newSelectedProjectEvent)="setSelectedProject($event)"
     ></app-projects>
+  </section>
+  <section id="project" *ngIf="selectedProject">
+    <button (click)="clearSelectedProject()">Back</button>
+    <app-project [project]="selectedProject"></app-project>
   </section>
   <section class="filters">
     <h2>Filters</h2>

@@ -1,3 +1,25 @@
-<div id="project-detail-component">
-    Project Detail Component
+<div
+    *ngIf="project"
+    id="project-detail-div"
+>
+    <h2>Details for {{ project.title | uppercase }}</h2>
+    <p>{{ project.body }}</p>
+    <button>
+        Link to Project
+    </button>
+    <p 
+        *ngIf="project.category"
+        class="category-name"
+    >
+        Category: {{ project.category.name }}
+    </p>
+    <p
+        *ngIf="project.tags.length > 0"
+        class="tag-names"
+    >
+        Tags:
+        <ng-container *ngFor="let tag of project.tags; let last = last">
+            {{ tag.name }}{{ !last ? ', ' : '' }}
+        </ng-container>
+    </p>
 </div>
