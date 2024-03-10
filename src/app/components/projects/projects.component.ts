@@ -1,13 +1,13 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { Category } from '../models/category';
-import { Tag } from '../models/tag';
-import { Project } from '../models/project';
+import { Category } from '../../models/category';
+import { Tag } from '../../models/tag';
+import { Project } from '../../models/project';
 
-import { ProjectService } from '../project.service';
+import { ProjectService } from '../../project.service';
 
-import { ProjectFilterPipe } from '../project-filter.pipe';
+import { ProjectFilterPipe } from '../../project-filter.pipe';
 
 @Component({
   selector: 'app-projects',

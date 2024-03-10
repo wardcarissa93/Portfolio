@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
-import { ProjectsComponent } from './projects/projects.component';
-import { CategoriesComponent } from './categories/categories.component';
-import { TagsComponent } from './tags/tags.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { CategoriesComponent } from './components/categories/categories.component';
+import { TagsComponent } from './components/tags/tags.component';
 
 import { Project } from './models/project';
 import { Category } from './models/category';
