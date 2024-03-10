@@ -22,9 +22,11 @@ export class CategoriesComponent {
     this.getCategories();
   }
 
-  categoryFilter: Category | undefined;
+  @Input() categoryFilter: Category | undefined;
+  @Output() newCategoryFilterEvent = new EventEmitter<Category>();
   
   setCategoryFilter(category: Category) {
     this.categoryFilter = category;
+    this.newCategoryFilterEvent.emit(category);
   }
 }
