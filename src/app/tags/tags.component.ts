@@ -22,9 +22,11 @@ export class TagsComponent {
     this.getTags();
   }
 
-  tagFilter: Tag | undefined;
+  @Input() tagFilter: Tag | undefined;
+  @Output() newTagFilterEvent = new EventEmitter<Tag>();
 
   setTagFilter(tag: Tag) {
     this.tagFilter = tag;
+    this.newTagFilterEvent.emit(tag);
   }
 }
