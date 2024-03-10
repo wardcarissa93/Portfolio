@@ -1,8 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { Tag } from '../models/tag';
-import { TagService } from '../tag.service';
+import { Tag } from '../../models/tag';
+import { TagService } from '../../tag.service';
 
 @Component({
   selector: 'app-tags',

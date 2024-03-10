@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
-import { ProjectsComponent } from './projects/projects.component';
-import { CategoriesComponent } from './categories/categories.component';
-import { TagsComponent } from './tags/tags.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { CategoriesComponent } from './components/categories/categories.component';
+import { TagsComponent } from './components/tags/tags.component';
+import { ProjectComponent } from './components/project/project.component';
 
 import { Project } from './models/project';
 import { Category } from './models/category';
@@ -22,6 +23,7 @@ import { ProjectFilterPipe } from './project-filter.pipe';
     ProjectsComponent,
     CategoriesComponent,
     TagsComponent,
+    ProjectComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
@@ -33,7 +35,6 @@ export class AppComponent {
 
   categoryFilter: Category | undefined;
   tagFilter: Tag | undefined;
-
   // Method to set category filter
   setCategoryFilter(category: Category): void {
     if (this.categoryFilter === category) {
@@ -44,7 +45,6 @@ export class AppComponent {
       this.categoryFilter = category;
     }
   }
-
   // Method to set tag filter
   setTagFilter(tag: Tag): void {
     if (this.tagFilter === tag) {
@@ -55,11 +55,18 @@ export class AppComponent {
       this.tagFilter = tag;
     }
   }
-
   // Method to clear both category and tag filters
   clearFilters(): void {
     this.categoryFilter = undefined;
     this.tagFilter = undefined;
+  }
+
+  selectedProject?: Project;
+  setSelectedProject(project: Project): void {
+    this.selectedProject = project;
+  }
+  clearSelectedProject() {
+    this.selectedProject = undefined;
   }
 
   // TrackBy function for *ngFor
