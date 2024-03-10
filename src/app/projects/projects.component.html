@@ -1,6 +1,7 @@
 <div 
     *ngFor="let project of projects | projectFilter : tagFilter; let i = index; trackBy: trackByFn"
     [class.hidden]="(categoryFilter && project.category?.id !== categoryFilter.id)"
+    id="project-div"
 >
     <h2>{{ project.title | uppercase }}</h2>
     <p>{{ project.excerpt }}</p>

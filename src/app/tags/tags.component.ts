@@ -25,8 +25,16 @@ export class TagsComponent {
   @Input() tagFilter: Tag | undefined;
   @Output() newTagFilterEvent = new EventEmitter<Tag>();
 
-  setTagFilter(tag: Tag) {
-    this.tagFilter = tag;
-    this.newTagFilterEvent.emit(tag);
+  // Method to set tag filter
+  setTagFilter(tag: Tag): void {
+    if (this.tagFilter === tag) {
+      // If the current tagFilter is the same as the clicked tag, remove the filter
+      this.tagFilter = undefined;
+      this.newTagFilterEvent.emit(undefined);
+    } else {
+      // Set the clicked tag as the new filter
+      this.tagFilter = tag;
+      this.newTagFilterEvent.emit(tag);
+    }
   }
 }

@@ -25,8 +25,15 @@ export class CategoriesComponent {
   @Input() categoryFilter: Category | undefined;
   @Output() newCategoryFilterEvent = new EventEmitter<Category>();
   
-  setCategoryFilter(category: Category) {
-    this.categoryFilter = category;
-    this.newCategoryFilterEvent.emit(category);
+  // Method to set category filter
+  setCategoryFilter(category: Category): void {
+    if (this.categoryFilter === category) {
+      this.categoryFilter = undefined;
+      this.newCategoryFilterEvent.emit(undefined);
+    } else {
+      // Set the clicked category as the new filter
+      this.categoryFilter = category;
+      this.newCategoryFilterEvent.emit(category);
+    }
   }
 }

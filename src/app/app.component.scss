@@ -2,6 +2,7 @@
 
 html {
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 *,
@@ -18,27 +19,22 @@ header {
 
 main {
     display: flex;
+    justify-content: space-between;
     font-family: 'Fira Sans', 'sans-serif';
 
     .projects {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
         width: 90%;
+        
+        app-projects {
+            display: grid;
+            padding: 0 0.5rem;
 
-        .hidden {
-            display: none;
-        }
+            @media (min-width: 540px) {
+                grid-template-columns: repeat(2, 1fr);
+            }
 
-        @media (min-width: 960px) {
-            grid-template-columns: 1fr 1fr 1fr;
-        }
-    
-        div {
-            padding: 1rem;
-    
-            .category-name, .tag-names {
-                font-size: 12px;
-                cursor: pointer;
+            @media (min-width: 960px) {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
     }
@@ -50,34 +46,12 @@ main {
         justify-content: flex-start;
         width: 7rem;
         border-left: 1px solid black;
+        padding: 0 0.5rem;
 
-        div {
+        app-categories, app-tags {
             display: flex;
             flex-direction: column;
             align-items: center;
-
-            .category-filters, 
-            .tag-filters {
-                border: 2px solid transparent;
-                padding: 5px;
-                cursor: pointer;
-                width: 4.5rem;
-                height: 1rem;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-bottom: 0.5rem;
-                border-radius: 5px;
-
-                &.active {
-                    border-color: red;
-                }
-
-                a {
-                    width: 100%;
-                    text-align: center;
-                }
-            }
         }
 
         button {

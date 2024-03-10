@@ -1,0 +1,21 @@
+.category-filters {
+    border: 2px solid transparent;
+    padding: 5px;
+    cursor: pointer;
+    width: 4.5rem;
+    height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+
+    &.active {
+        border-color: red;
+    }
+
+    a {
+        width: 100%;
+        text-align: center;
+    }
+}
