@@ -25,18 +25,18 @@ main {
     .projects {
         width: 90%;
         
-        app-projects {
-            display: grid;
-            padding: 0 0.5rem;
+        // app-projects {
+        //     display: grid;
+        //     padding: 0 0.5rem;
 
-            @media (min-width: 540px) {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        //     @media (min-width: 540px) {
+        //         grid-template-columns: repeat(2, 1fr);
+        //     }
 
-            @media (min-width: 960px) {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
+        //     @media (min-width: 960px) {
+        //         grid-template-columns: repeat(3, 1fr);
+        //     }
+        // }
     }
 
     #project {
