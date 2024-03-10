@@ -1,34 +1,35 @@
-// Importing necessary modules from Angular
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
-import { ProjectFilterPipe } from './project-filter.pipe';
+import { ProjectsComponent } from './projects/projects.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { TagsComponent } from './tags/tags.component';
 
-import { Category } from './models/category';
 import { Project } from './models/project';
+import { Category } from './models/category';
 import { Tag } from './models/tag';
 
-import { CATEGORIES } from './data/categories';
-import { PROJECTS } from './data/projects';
-import { TAGS } from './data/tags';
+import { ProjectFilterPipe } from './project-filter.pipe';
 
-// Component decorator for the main app component
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, ProjectFilterPipe],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    ProjectFilterPipe,
+    ProjectsComponent,
+    CategoriesComponent,
+    TagsComponent,
+  ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  // Properties for the main app component
   title = 'Portfolio';
-  date = new Date().getFullYear(); 
+  year = new Date().getFullYear();
   author = 'Carissa Ward';
-  categories = CATEGORIES;
-  tags = TAGS;
-  projects = PROJECTS;
 
   categoryFilter: Category | undefined;
   tagFilter: Tag | undefined;
@@ -39,7 +40,7 @@ export class AppComponent {
       // If the current categoryFilter is the same as the clicked category, remove the filter
       this.categoryFilter = undefined;
     } else {
-      // Set the clicked tag as the new filter
+      // Set the clicked category as the new filter
       this.categoryFilter = category;
     }
   }

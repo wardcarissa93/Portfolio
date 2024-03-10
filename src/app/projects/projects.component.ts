@@ -27,19 +27,43 @@ export class ProjectsComponent {
     this.getProjects();
   }
 
-  categoryFilter: Category | undefined;
-  tagFilter: Tag | undefined;
+  @Input() categoryFilter: Category | undefined;
+  @Output() newCategoryFilterEvent = new EventEmitter<Category>();
+  @Input() tagFilter: Tag | undefined;
+  @Output() newTagFilterEvent = new EventEmitter<Tag>();
 
-  setCategoryFilter(category: Category) {
-    this.categoryFilter = category;
+  // Method to set category filter
+  setCategoryFilter(category: Category): void {
+    if (this.categoryFilter === category) {
+      // If the current categoryFilter is the same as the clicked category, remove the filter
+      this.categoryFilter = undefined;
+      this.newCategoryFilterEvent.emit(undefined);
+    } else {
+      // Set the clicked category as the filter
+      this.categoryFilter = category;
+      this.newCategoryFilterEvent.emit(category);
+    }
   }
 
-  setTagFilter(tag: Tag) {
-    this.tagFilter = tag;
+  setTagFilter(tag: Tag): void {
+    if (this.tagFilter === tag) {
+      // If the current tagFilter is the same as the clicked tag, remove the filter
+      this.tagFilter = undefined;
+      this.newTagFilterEvent.emit(undefined);
+    } else {
+      // Set the clicked tag as the filter
+      this.tagFilter = tag;
+      this.newTagFilterEvent.emit(tag);
+    }
   }
 
   clearFilters() {
     this.categoryFilter = undefined;
     this.tagFilter = undefined;
+  }
+
+  // TrackBy function for *ngFor
+  trackByFn(index: number, project: Project): number {
+    return project.id;
   }
 }

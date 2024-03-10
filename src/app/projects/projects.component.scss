@@ -1,0 +1,12 @@
+#project-div {
+    padding: 1rem;
+
+    &.hidden {
+        display: none;
+    }
+
+    .category-name, .tag-names {
+        font-size: 12px;
+        cursor: pointer;
+    }
+}

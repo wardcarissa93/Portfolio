@@ -3,45 +3,30 @@
 </header>
 <main>
   <section class="projects">
-    <div 
-      *ngFor="let project of projects | projectFilter : tagFilter; let i = index; trackBy: trackByFn"
-      [class.hidden]="(categoryFilter && project.category?.id !== categoryFilter.id)"
-    >
-      <h2>{{ project.title | uppercase }}</h2>
-      <p>{{ project.excerpt }}</p>
-      <p *ngIf="project.category" class="category-name">Category: <a (click)="setCategoryFilter(project.category)">{{ project.category.name }}</a></p>
-      <p *ngIf="project.tags.length > 0" class="tag-names">Tags:
-        <ng-container *ngFor="let tag of project.tags; let last = last">
-          <a (click)="setTagFilter(tag)">{{ tag.name }}{{ !last ? ', ' : '' }}</a>
-        </ng-container>
-      </p>
-    </div>
+    <app-projects
+      [categoryFilter]="categoryFilter"
+      (newCategoryFilterEvent)="setCategoryFilter($event)"
+      [tagFilter]="tagFilter"
+      (newTagFilterEvent)="setTagFilter($event)"
+    ></app-projects>
   </section>
   <section class="filters">
     <h2>Filters</h2>
-    <div>
-      <h3>Categories:</h3>
-      <div 
-        *ngFor="let category of categories" 
-        [class.active]="categoryFilter?.id === category.id" 
-        class="category-filters"
-      >
-        <a (click)="setCategoryFilter(category)">{{ category.name }}</a>
-      </div>
+    <div id="categories">
+      <app-categories
+        [categoryFilter]="categoryFilter"
+        (newCategoryFilterEvent)="setCategoryFilter($event)"
+      ></app-categories>
     </div>
-    <div>
-      <h3>Tags:</h3>
-      <div 
-        *ngFor="let tag of tags" 
-        [class.active]="tagFilter?.id === tag.id"
-        class="tag-filters"
-      >
-        <a (click)="setTagFilter(tag)">{{ tag.name }}</a>
-      </div>
+    <div id="tags">
+      <app-tags
+        [tagFilter]="tagFilter"
+        (newTagFilterEvent)="setTagFilter($event)"
+      ></app-tags>
     </div>
     <button (click)="clearFilters()">Clear Filters</button>
   </section>
 </main>
 <footer>
-  <p>&copy; {{ date }} {{ author }}</p>
+  <p>&copy; {{ year }} {{ author }}</p>
 </footer>
