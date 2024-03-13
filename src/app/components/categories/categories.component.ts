@@ -6,8 +6,8 @@ import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-categories',
-  standalone: true,
-  imports: [CommonModule],
+  standalone: false,
+  // imports: [CommonModule],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.scss'
 })
