@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -20,7 +20,7 @@ import { ProjectComponent } from '../project/project.component';
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit {
   constructor(
     private projectService: ProjectService,
     private router: Router,
@@ -28,7 +28,9 @@ export class ProjectsComponent {
 
   projects: Project[] = [];
   getProjects(): void {
-    this.projects = this.projectService.getProjects();
+    this.projectService
+      .getProjects()
+      .subscribe((projects) => (this.projects = projects));
   }
   ngOnInit(): void {
     this.getProjects();
@@ -71,10 +73,26 @@ export class ProjectsComponent {
   @Input() selectedProject: Project | undefined;
   @Output() newSelectedProjectEvent = new EventEmitter<Project>();
   // Method to select a project
+  // setSelectedProject(project: Project): void {
+  //   this.newSelectedProjectEvent.emit(project);
+  //   this.router.navigate(['/projects', project.id]);
+  // }
   setSelectedProject(project: Project): void {
-    this.newSelectedProjectEvent.emit(project);
-    this.router.navigate(['/projects', project.id]);
-  }
+    this.projectService.getProject(project.id).subscribe(
+      (projectData) => {
+        if (projectData) {
+          this.selectedProject = projectData;
+          this.newSelectedProjectEvent.emit(projectData);
+          this.router.navigate(['/projects', projectData.id]);
+        } else {
+          console.error(`Project with id ${project.id} not found.`);
+        }
+      },
+      (error: any) => {
+        console.error('Error occurred while fetching project:', error);
+      }
+    )
+  } 
 
   // TrackBy function for *ngFor
   trackByFn(index: number, project: Project): number {

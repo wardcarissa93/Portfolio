@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { Tag } from '../../models/tag';
@@ -11,12 +11,14 @@ import { TagService } from '../../services/tag.service';
   templateUrl: './tags.component.html',
   styleUrl: './tags.component.scss'
 })
-export class TagsComponent {
+export class TagsComponent implements OnInit {
   constructor(private tagService: TagService) {}
 
   tags: Tag[] = [];
   getTags(): void {
-    this.tags = this.tagService.getTags();
+    this.tagService
+      .getTags()
+      .subscribe((tags) => (this.tags = tags));
   }
   ngOnInit(): void {
     this.getTags();

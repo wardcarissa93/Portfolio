@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { Category } from '../../models/category';
@@ -11,12 +11,14 @@ import { CategoryService } from '../../services/category.service';
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.scss'
 })
-export class CategoriesComponent {
+export class CategoriesComponent implements OnInit {
   constructor(private categoryService: CategoryService) {}
 
   categories: Category[] = [];
   getCategories(): void {
-    this.categories = this.categoryService.getCategories();
+    this.categoryService
+      .getCategories()
+      .subscribe((categories) => (this.categories = categories));
   }
   ngOnInit(): void {
     this.getCategories();

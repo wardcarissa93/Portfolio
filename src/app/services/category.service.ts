@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Category } from '../models/category';
 import { CATEGORIES } from '../data/categories';
 
@@ -7,7 +8,8 @@ import { CATEGORIES } from '../data/categories';
 })
 export class CategoryService {
   constructor() { }
-  getCategories(): Category[] {
-    return CATEGORIES;
+  getCategories(): Observable<Category[]> {
+    const categories = of(CATEGORIES);
+    return categories;
   }
 }

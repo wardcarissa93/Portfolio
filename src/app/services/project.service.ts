@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Project } from '../models/project';
 import { PROJECTS } from '../data/projects';
 
@@ -7,10 +8,12 @@ import { PROJECTS } from '../data/projects';
 })
 export class ProjectService {
   constructor() { }
-  getProjects(): Project[] {
-    return PROJECTS;
+  getProjects(): Observable<Project[]> {
+    const projects = of(PROJECTS);
+    return projects;
   }
-  getProject(id: number): Project {
-    return PROJECTS.find((project) => project.id === id)!;
+  getProject(id: number): Observable<Project | undefined> {
+    const project = PROJECTS.find((project) => project.id === id)!;
+    return of(project);
   }
 }
