@@ -15,16 +15,16 @@ import { ProjectFilterPipe } from './project-filter.pipe';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    ProjectFilterPipe,
-    ProjectsComponent,
-    CategoriesComponent,
-    TagsComponent,
-    ProjectComponent,
-  ],
+  standalone: false,
+  // imports: [
+  //   CommonModule,
+  //   RouterOutlet,
+  //   ProjectFilterPipe,
+  //   ProjectsComponent,
+  //   CategoriesComponent,
+  //   TagsComponent,
+  //   ProjectComponent,
+  // ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

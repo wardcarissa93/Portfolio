@@ -6,8 +6,8 @@ import { TagService } from '../../services/tag.service';
 
 @Component({
   selector: 'app-tags',
-  standalone: true,
-  imports: [CommonModule],
+  standalone: false,
+  // imports: [CommonModule],
   templateUrl: './tags.component.html',
   styleUrl: './tags.component.scss'
 })
