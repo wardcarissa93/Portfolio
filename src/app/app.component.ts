@@ -32,6 +32,7 @@ export class AppComponent {
   title = 'Portfolio';
   year = new Date().getFullYear();
   author = 'Carissa Ward';
+  menuOpen = false;
 
   categoryFilter: Category | undefined;
   tagFilter: Tag | undefined;
@@ -72,5 +73,11 @@ export class AppComponent {
   // TrackBy function for *ngFor
   trackByFn(index: number, project: Project): number {
     return project.id;
+  }
+
+  // Method to open and close menu
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
+    console.log(this.menuOpen);
   }
 }

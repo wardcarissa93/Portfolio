@@ -1,11 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 import { Category } from '../../models/category';
 import { Tag } from '../../models/tag';
 import { Project } from '../../models/project';
 
-import { ProjectService } from '../../project.service';
+import { ProjectService } from '../../services/project.service';
 
 import { ProjectFilterPipe } from '../../project-filter.pipe';
 
@@ -20,7 +21,10 @@ import { ProjectComponent } from '../project/project.component';
   styleUrl: './projects.component.scss'
 })
 export class ProjectsComponent {
-  constructor(private projectService: ProjectService) {}
+  constructor(
+    private projectService: ProjectService,
+    private router: Router,
+  ) {}
 
   projects: Project[] = [];
   getProjects(): void {
@@ -69,6 +73,7 @@ export class ProjectsComponent {
   // Method to select a project
   setSelectedProject(project: Project): void {
     this.newSelectedProjectEvent.emit(project);
+    this.router.navigate(['/projects', project.id]);
   }
 
   // TrackBy function for *ngFor

@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { Category } from '../../models/category';
-import { CategoryService } from '../../category.service';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-categories',
