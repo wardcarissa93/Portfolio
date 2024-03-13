@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
+import { ProjectService } from '../../services/project.service';
 import { Project } from '../../models/project';
 
 @Component({
@@ -11,6 +13,27 @@ import { Project } from '../../models/project';
   styleUrl: './project.component.scss'
 })
 export class ProjectComponent {
-  // Project will be passed in from the parent component, optional
-  @Input() project?: Project;
+  constructor(
+    private route: ActivatedRoute,
+    private projectService: ProjectService,
+    private location: Location,
+  ) {}
+
+  project?: Project;
+
+  // Extract the id from the route and use the ProjectService to get the project with that idf
+  getProject(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.project = this.projectService.getProject(id);
+  }
+
+  // Call getProject() in the ngOnInit lifecycle hook
+  ngOnInit(): void {
+    this.getProject();
+  }
+
+  // goBack() method uses the Location service to go back to the previous page
+  goBack(): void {
+    this.location.back();
+  }
 }

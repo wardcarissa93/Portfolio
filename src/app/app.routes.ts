@@ -4,4 +4,5 @@ import { ProjectComponent } from './components/project/project.component';
 
 export const routes: Routes = [
     { path: 'projects', component: ProjectsComponent, pathMatch: 'full' },
+    { path: 'projects/:id', component: ProjectComponent },
 ];

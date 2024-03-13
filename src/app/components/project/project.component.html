@@ -2,6 +2,7 @@
     *ngIf="project"
     id="project-detail-div"
 >
+    <button type="button" (click)="goBack()">Go Back</button>
     <h2>Details for {{ project.title | uppercase }}</h2>
     <p>{{ project.body }}</p>
     <button>

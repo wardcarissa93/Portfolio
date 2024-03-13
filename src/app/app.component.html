@@ -1,5 +1,49 @@
 <header>
   <h1>{{ author }}'s {{ title }}</h1>
+  <nav>
+    <ul>
+      <li>
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          routerLinkActiveOptions="{ exact: true }"
+          ariaCurrentWhenActive="page"
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/about"
+          routerLinkActive="active"
+          routerLinkActiveOptions="{ exact: true }"
+          ariaCurrentWhenActive="page"
+        >
+          About
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/projects"
+          routerLinkActive="active"
+          routerLinkActiveOptions="{ exact: true }"
+          ariaCurrentWhenActive="page"
+        >
+          Projects
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/contact"
+          routerLinkActive="active"
+          routerLinkActiveOptions="{ exact: true }"
+          ariaCurrentWhenActive="page"
+        >
+          Contact
+        </a>
+      </li>
+    </ul>
+  </nav>
 </header>
 <main>
   <router-outlet></router-outlet>
