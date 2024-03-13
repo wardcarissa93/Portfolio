@@ -73,10 +73,26 @@ export class ProjectsComponent implements OnInit {
   @Input() selectedProject: Project | undefined;
   @Output() newSelectedProjectEvent = new EventEmitter<Project>();
   // Method to select a project
+  // setSelectedProject(project: Project): void {
+  //   this.newSelectedProjectEvent.emit(project);
+  //   this.router.navigate(['/projects', project.id]);
+  // }
   setSelectedProject(project: Project): void {
-    this.newSelectedProjectEvent.emit(project);
-    this.router.navigate(['/projects', project.id]);
-  }
+    this.projectService.getProject(project.id).subscribe(
+      (projectData) => {
+        if (projectData) {
+          this.selectedProject = projectData;
+          this.newSelectedProjectEvent.emit(projectData);
+          this.router.navigate(['/projects', projectData.id]);
+        } else {
+          console.error(`Project with id ${project.id} not found.`);
+        }
+      },
+      (error: any) => {
+        console.error('Error occurred while fetching project:', error);
+      }
+    )
+  } 
 
   // TrackBy function for *ngFor
   trackByFn(index: number, project: Project): number {

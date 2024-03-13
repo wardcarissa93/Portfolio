@@ -24,7 +24,8 @@ export class ProjectComponent {
   // Extract the id from the route and use the ProjectService to get the project with that idf
   getProject(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.project = this.projectService.getProject(id);
+    this.projectService.getProject(id)
+      .subscribe(project => this.project = project); 
   }
 
   // Call getProject() in the ngOnInit lifecycle hook
