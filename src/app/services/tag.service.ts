@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Tag } from '../models/tag';
 import { TAGS } from '../data/tags';
 
@@ -7,7 +8,8 @@ import { TAGS } from '../data/tags';
 })
 export class TagService {
   constructor() { }
-  getTags(): Tag[] {
-    return TAGS;
+  getTags(): Observable<Tag[]> {
+    const tags = of(TAGS);
+    return tags;
   }
 }
