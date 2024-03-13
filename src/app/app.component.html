@@ -1,6 +1,6 @@
 <header>
-  <h1>{{ author }}'s {{ title }}</h1>
-  <nav>
+  <h1>{{ author }}<span id="title-span">'s {{ title }}</span></h1>
+  <nav [class.open]="menuOpen">
     <ul>
       <li>
         <a
@@ -44,6 +44,15 @@
       </li>
     </ul>
   </nav>
+  <button 
+  class="hamburger" 
+  (click)="toggleMenu()"
+  [class.open]="menuOpen"
+>
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
 </header>
 <main>
   <router-outlet></router-outlet>

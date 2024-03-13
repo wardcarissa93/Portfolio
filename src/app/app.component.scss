@@ -13,8 +13,124 @@ html {
 
 header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     font-family: 'Fira Sans', 'sans-serif';
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: white;
+    position: relative;
+
+    h1 {
+        margin: 0;
+        display: flex;
+        flex-grow: 1;
+
+        #title-span {
+            display: none;
+
+            @media(min-width: 480px) {
+                display: flex;
+            }
+        }
+    }
+
+    .hamburger {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 2.25rem;
+        height: 1.75rem;
+        z-index: 10;
+        position: absolute;
+        right: 1rem;
+
+        span {
+            background-color: white;
+            height: 0.25rem;
+            width: 2.25rem;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        &.open span:nth-child(1) {
+            transform: rotate(45deg) translate(0.5rem, 0.5rem);
+        }
+
+        &.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        &.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(0.5rem, -0.5rem);
+        }
+
+        @media (min-width: 960px) {
+            display: none;
+        }
+    }
+
+    nav {
+        display: none;
+        flex-grow: 1;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        z-index: 9;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            li {
+                a {
+                    text-decoration: none;
+                    color: white;
+                    transition: background-color 0.3s ease;
+
+                    &:hover {
+                        background-color: rgba(255, 255, 255, 0.2);
+                    }
+                }
+            }
+        }
+
+        &.open {
+            display: flex;
+            justify-content: center;
+        }
+
+        @media (min-width: 960px) {
+            display: flex;
+            width: 60%;
+            position: relative;
+
+            ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                width: 100%;
+
+                li+li {
+                    border-left: 1px solid white;
+                    margin-left: 1rem;
+                    padding-left: 1rem;
+                }
+            }
+        }
+    }
 }
 
 main {
@@ -70,4 +186,3 @@ footer {
     margin-right: 3rem;
     font-family: 'Fira Sans', 'sans-serif';
 }
-
