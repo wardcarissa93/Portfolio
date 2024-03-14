@@ -12,11 +12,19 @@ import { ProjectFilterPipe } from '../../project-filter.pipe';
 
 // Import the Project Detail component so that we can use it in the template
 import { ProjectComponent } from '../project/project.component';
+import { CategoriesComponent } from '../categories/categories.component';
+import { TagsComponent } from '../tags/tags.component';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, ProjectFilterPipe, ProjectComponent],
+  imports: [
+    CommonModule, 
+    ProjectFilterPipe, 
+    ProjectComponent,
+    CategoriesComponent,
+    TagsComponent
+  ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })

@@ -1,13 +1,13 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-// import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 import { Category } from '../../models/category';
 import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-categories',
-  standalone: false,
-  // imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.scss'
 })
