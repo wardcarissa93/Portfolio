@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-
+import { AppRoutingModule } from './app.routes'
 import { AppComponent } from './app.component';
-import { routes } from './app.routes';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { TagsComponent } from './components/tags/tags.component';
 
@@ -11,11 +9,11 @@ import { TagsComponent } from './components/tags/tags.component';
     declarations: [
         AppComponent,
         CategoriesComponent,
-        TagsComponent
+        TagsComponent,
     ],
     imports: [
         BrowserModule,
-        RouterModule.forRoot(routes)
+        AppRoutingModule
     ],
     providers: [],
     bootstrap: [AppComponent]
