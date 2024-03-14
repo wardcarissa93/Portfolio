@@ -20,3 +20,19 @@
         </p>
     </div>
 </section>
+<section class="filters">
+    <h2>Filters</h2>
+    <div id="categories">
+      <app-categories
+        [categoryFilter]="categoryFilter"
+        (newCategoryFilterEvent)="setCategoryFilter($event)"
+      ></app-categories>
+    </div>
+    <div id="tags">
+      <app-tags
+        [tagFilter]="tagFilter"
+        (newTagFilterEvent)="setTagFilter($event)"
+      ></app-tags>
+    </div>
+    <button (click)="clearFilters()">Clear Filters</button>
+  </section>

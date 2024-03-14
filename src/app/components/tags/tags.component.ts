@@ -1,13 +1,13 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-// import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 import { Tag } from '../../models/tag';
 import { TagService } from '../../services/tag.service';
 
 @Component({
   selector: 'app-tags',
-  standalone: false,
-  // imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './tags.component.html',
   styleUrl: './tags.component.scss'
 })
