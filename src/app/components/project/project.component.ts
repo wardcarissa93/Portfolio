@@ -37,4 +37,9 @@ export class ProjectComponent {
   goBack(): void {
     this.location.back();
   }
+
+  // navigateToUrl() method opens the project's URL in a new tab
+  navigateToUrl(url: string): void {
+    window.open(url, '_blank');
+  }
 }

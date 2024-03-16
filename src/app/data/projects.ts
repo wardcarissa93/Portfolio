@@ -122,7 +122,7 @@ export const PROJECTS: Project[] = [
       slug:  "spectrum",
       excerpt: "Challenge your color perception with Spectrum, a JavaScript game. Guess the hexcode of randomly-generated colors and explore the vibrant world of hues.",
       body: "Dive into the captivating world of Spectrum, a JavaScript game that puts your color knowledge to the test. Can you guess the hexcode of the randomly-generated color? Challenge yourself and explore the vibrant spectrum of colors. Unlock the artist within and embark on an exciting journey with Spectrum.",
-      url: null,
+      url: "http://spectrum-game.me",
       published_date: null,
       image: null,
       thumb: null,
@@ -159,6 +159,35 @@ export const PROJECTS: Project[] = [
           name:  "C#",
           slug:  "c-sharp",
           "pivot": { "projects_id": 6, "tags_id": 5 }
+        }
+      ]
+    },
+    {
+      id:  7,
+      title: "Film Findr",
+      slug:  "film-findr",
+      excerpt: "Excerpt for Film Findr",
+      body: "Body for Film Findr",
+      url: "http://filmfindr.ca",
+      published_date: null,
+      image: null,
+      thumb: null,
+      category_id: 2,
+      created_at: "2024-01-30T16:23:23.000000Z",
+      updated_at: "2023-01-30T16:24:52.000000Z",
+      category: { id:  2, slug:  "front-end", name:  "Front End" },
+      tags: [
+        {
+          id:  1,
+          name:  "React",
+          slug:  "react",
+          "pivot": { "projects_id": 7, "tags_id": 1 }
+        },
+        {
+          id:  2,
+          name:  "Sass",
+          slug:  "sass",
+          "pivot": { "projects_id": 7, "tags_id": 2 }
         }
       ]
     }
