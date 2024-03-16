@@ -1,21 +1,29 @@
-<div
-    *ngIf="project"
+<div 
+    *ngIf="project" 
     id="project-detail-div"
 >
-    <button type="button" (click)="goBack()">Go Back</button>
+    <button 
+        type="button" 
+        (click)="goBack()"
+    >
+        Go Back
+    </button>
     <h2>Details for {{ project.title | uppercase }}</h2>
     <p>{{ project.body }}</p>
-    <button>
+    <button
+        *ngIf="project.url" 
+        (click)="navigateToUrl(project.url)"
+    >
         Link to Project
     </button>
     <p 
-        *ngIf="project.category"
+        *ngIf="project.category" 
         class="category-name"
     >
         Category: {{ project.category.name }}
     </p>
-    <p
-        *ngIf="project.tags.length > 0"
+    <p 
+        *ngIf="project.tags.length > 0" 
         class="tag-names"
     >
         Tags:
