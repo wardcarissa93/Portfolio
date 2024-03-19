@@ -1,41 +1,46 @@
-<div id="projects-filter-div">
-    <section id="all-projects">
-        <div 
-            *ngFor="let project of projects | projectFilter : tagFilter; let i = index; trackBy: trackByFn"
-            [class.hidden]="(categoryFilter && project.category?.id !== categoryFilter.id)"
-    
-            id="project-div"
-        >
-            <h2>{{ project.title | uppercase }}</h2>
-            <p class="project-excerpt">{{ project.excerpt }}</p>
-            <button
-                (click)="setSelectedProject(project)"
-            >
-                More Info
-            </button>
-            <p *ngIf="project.category" class="category-name">Category: <a (click)="setCategoryFilter(project.category)">{{ project.category.name }}</a></p>
-            <p *ngIf="project.tags.length > 0" class="tag-names">Tags:
-                <ng-container *ngFor="let tag of project.tags; let last = last">
-                    <a (click)="setTagFilter(tag)">{{ tag.name }}{{ !last ? ', ' : '' }}</a>
-                </ng-container>
-            </p>
-        </div>
-    </section>
-    <section class="filters">
-        <h2>Filters</h2>
-        <div id="categories">
-          <app-categories
-            [categoryFilter]="categoryFilter"
-            (newCategoryFilterEvent)="setCategoryFilter($event)"
-          ></app-categories>
-        </div>
-        <div id="tags">
-          <app-tags
-            [tagFilter]="tagFilter"
-            (newTagFilterEvent)="setTagFilter($event)"
-          ></app-tags>
-        </div>
-        <button (click)="clearFilters()">Clear Filters</button>
-      </section>
-</div>
+<div id="projects-component">
+  <section class="filters">
+    <h2>Filter Projects by Category and/or Tag</h2>
+    <div id="filter-title-button">
 
+    </div>
+    <div id="categories">
+      <app-categories
+        [categoryFilter]="categoryFilter"
+        (newCategoryFilterEvent)="setCategoryFilter($event)"
+      ></app-categories>
+    </div>
+    <div id="tags">
+      <app-tags
+        [tagFilter]="tagFilter"
+        (newTagFilterEvent)="setTagFilter($event)"
+      ></app-tags>
+    </div>
+    <button (click)="clearFilters()">Clear Filters</button>
+  </section>
+  <div id="projects-fish-div">
+    <section id="all-projects">
+      <div 
+          *ngFor="let project of projects | projectFilter : tagFilter; let i = index; trackBy: trackByFn"
+          [class.hidden]="(categoryFilter && project.category?.id !== categoryFilter.id)"
+  
+          id="project-div"
+      >
+          <h2>{{ project.title | uppercase }}</h2>
+          <p class="project-excerpt">{{ project.excerpt }}</p>
+          <button
+              (click)="setSelectedProject(project)"
+          >
+              More Info
+          </button>
+          <p *ngIf="project.category" class="category-name">Category: <a (click)="setCategoryFilter(project.category)">{{ project.category.name }}</a></p>
+          <p *ngIf="project.tags.length > 0" class="tag-names">Tags:
+              <ng-container *ngFor="let tag of project.tags; let last = last">
+                  <a (click)="setTagFilter(tag)">{{ tag.name }}{{ !last ? ', ' : '' }}</a>
+              </ng-container>
+          </p>
+      </div>
+    </section>
+    <app-fish></app-fish>
+  </div>
+</div>

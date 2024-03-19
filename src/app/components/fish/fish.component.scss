@@ -1,0 +1,329 @@
+// Importing variables
+@use 'fish-variables' as *;
+
+.fish-container {
+    width: 15rem;
+    height: 10rem;
+    border: 2px solid purple;
+    margin: 0 auto;
+    position: sticky;
+    top: 5rem;
+
+    .dorsal-fin {
+        width: 4rem;
+        height: 2rem;
+        background-color: $secondary-color;
+        transform: skew(-25deg) rotate(7.5deg);
+        position: relative;
+        left: 6rem;
+        top: 2rem;
+        z-index: 0;
+        display: flex;
+
+        .dorsal-fin-segment {
+            width: 10%;
+            height: 100%;
+
+            &+.dorsal-fin-segment {
+                border-left: 1px solid $blackish;
+            }
+        }
+    }
+
+    .pelvic-fin {
+        width: 2rem;
+        height: 2rem;
+        background-color: $secondary-color;
+        transform: skew(25deg) rotate(-7.5deg);
+        z-index: 0;
+        position: relative;
+        left: 6.25rem;
+        top: 4rem;
+        display: flex;
+
+        .pelvic-fin-segment {
+            width: 0.8rem;
+            height: 100%;
+
+            &+.pelvic-fin-segment {
+                border-left: 1px solid $blackish;
+            }
+        }
+    }
+
+    .caudal-fin {
+        width: 0;
+        height: 0;
+        border-top: 1.75rem solid transparent;
+        border-bottom: 1.75rem solid transparent;
+        border-right: 1.25rem solid $secondary-color;
+        position: relative;
+        bottom: 0.75rem;
+        left: 11.625rem;
+    }
+
+    .fish-body {
+        width: 10rem;
+        height: 5rem;
+        background-color: $primary-color;
+        border-radius: 50%;
+        position: relative;
+        left: 2.5rem;
+        bottom: 5rem;
+
+        .fish-mouth {
+            width: 0;
+            height: 0;
+            z-index: 1;
+            border-top: 0.5rem solid transparent;
+            border-bottom: 0.5rem solid transparent;
+            border-left: 2.5rem solid white;
+            position: relative;
+            top: 2rem;
+            right: 1.5rem;
+        }
+
+        .fish-eye {
+            width: 0.75rem;
+            height: 0.75rem;
+            background-color: white;
+            border-radius: 50%;
+            z-index: 1;
+            position: relative;
+            left: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .fish-pupil {
+                width: 0.4rem;
+                height: 0.4rem;
+                background-color: $blackish;
+                z-index: 2;
+                border-radius: 50%;
+                margin-right: 0.25rem;
+
+                &:hover {
+                    margin-right: 0;
+                }
+            }
+        }
+        .pectoral-fin {
+            width: 0;
+            height: 0;
+            border-top: 1rem solid transparent;
+            border-bottom: 1rem solid transparent;
+            border-right: 1.5rem solid $secondary-color;
+            z-index: 1;
+            position: relative;
+            left: 2rem;
+            bottom: 0.25rem;
+
+            .pectoral-fin-divider {
+                width: 0;
+                height: 0;
+                border-top: 1rem solid transparent;
+                border-bottom: 1rem solid transparent;
+                border-right: 0.25rem solid $primary-color;
+                position: relative;
+                left: 1.3rem;
+                bottom: 1rem;
+            }
+        }
+
+        .all-scales-A {
+            width: 7rem;
+            height: 5rem;
+            position: relative;
+            left: 3.5rem;
+            bottom: 3.75rem;
+            display: flex;
+            align-items: center;
+
+            .scale-column-A {
+                width: 1rem;
+                height: 5rem;
+            }
+
+            #scale-column-A-1 {
+                z-index: 10;
+            }
+
+            #scale-column-A-2 {
+                z-index: 8;
+            }
+
+            #scale-column-A-3,
+            #scale-column-A-4,
+            #scale-column-A-5 {
+                height: 3rem;
+            }
+
+            #scale-column-A-3 {
+                z-index: 6;
+            }
+
+            #scale-column-A-4 {
+                z-index: 4;
+            }
+
+            #scale-column-A-5 {
+                z-index: 2;
+            }
+
+            #scale-column-A-6 {
+                z-index: 0;
+                height: 1rem;
+            }
+        }
+        .scale-covers-A {
+            width: 112px;
+            height: 80px;
+            position: relative;
+            left: 3.5rem;
+            bottom: 8.75rem;
+            
+            .scale-cover-A-column {
+                width: 1rem;
+                height: 5rem;
+                position: relative;
+            }
+
+            #scale-cover-A-column-1 {
+                z-index: 10;
+            }
+
+            #scale-cover-A-column-2 {
+                z-index: 8;
+                left: 1rem;
+                bottom: 5rem;
+            }
+
+            #scale-cover-A-column-3,
+            #scale-cover-A-column-4,
+            #scale-cover-A-column-5 {
+                height: 3rem;
+            }
+
+            #scale-cover-A-column-3 {
+                z-index: 6;
+                left: 2rem;
+                bottom: 9rem;
+            }
+
+            #scale-cover-A-column-4 {
+                z-index: 4;
+                left: 3rem;
+                bottom: 12rem;
+            }
+
+            #scale-cover-A-column-5 {
+                z-index: 2;
+                left: 4rem;
+                bottom: 15rem;
+            }
+
+            #scale-cover-A-column-6 {
+                z-index: 0;
+                left: 5rem;
+                bottom: 17rem;
+            }
+        }
+        .all-scales-B {
+            width: 6rem;
+            height: 5rem;
+            position: relative;
+            left: 4rem;
+            bottom: 8.75rem;
+
+            .scale-column-B {
+                position: relative;
+            }
+
+            #scale-column-B-1 {
+                z-index: 9;
+                bottom: 4.5rem;
+            }
+
+            #scale-column-B-2 {
+                z-index: 7;
+                bottom: 8.5rem;
+                left: 1rem;
+            }
+
+            #scale-column-B-3 {
+                z-index: 5;
+                bottom: 12.5rem;
+                left: 2rem;
+            }
+
+            #scale-column-B-4 {
+                z-index: 3;
+                bottom: 16.5rem;
+                left: 3rem;
+            }
+
+            #scale-column-B-5 {
+                z-index: 1;
+                bottom: 19.5rem;
+                left: 4rem;
+            }
+        }
+        .scale-covers-B {
+            width: 112px;
+            height: 64px;
+            position: relative;
+            left: 3.95rem;
+            bottom: 18.375rem;
+
+            .scale-cover-B-column {
+                position: relative;
+            }
+
+            #scale-cover-B-column-1 {
+                z-index: 9;
+            }
+
+            #scale-cover-B-column-2 {
+                z-index: 7;
+                left: 1rem;
+                bottom: 4rem;
+            }
+
+            #scale-cover-B-column-3 {
+                z-index: 5;
+                left: 2rem;
+                bottom: 7.89rem;
+            }
+
+            #scale-cover-B-column-4 {
+                z-index: 3;
+                left: 3rem;
+                bottom: 11.89rem;
+            }
+
+            #scale-cover-B-column-5 {
+                z-index: 1;
+                left: 4rem;
+                bottom: 15rem;
+            }
+
+        }
+    }
+}
+
+.scale {
+    height: 0.9rem;
+    width: 0.9rem;
+    background-color: $primary-color;
+    border: 1px solid $darker-yellow;
+    border-radius: 50%;
+}
+
+.scale-cover {
+    height: 1rem;
+    width: 0.5rem;
+    border-bottom-left-radius: 2rem;
+    border-top-left-radius: 2rem;
+    background-color: $primary-color;
+}

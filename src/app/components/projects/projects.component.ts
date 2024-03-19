@@ -14,6 +14,7 @@ import { ProjectFilterPipe } from '../../project-filter.pipe';
 import { ProjectComponent } from '../project/project.component';
 import { CategoriesComponent } from '../categories/categories.component';
 import { TagsComponent } from '../tags/tags.component';
+import { FishComponent } from '../fish/fish.component';
 
 @Component({
   selector: 'app-projects',
@@ -23,7 +24,8 @@ import { TagsComponent } from '../tags/tags.component';
     ProjectFilterPipe, 
     ProjectComponent,
     CategoriesComponent,
-    TagsComponent
+    TagsComponent,
+    FishComponent
   ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
