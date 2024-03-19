@@ -1,8 +1,10 @@
 <h3>Categories:</h3>
-<div 
-  *ngFor="let category of categories" 
-  [class.active]="categoryFilter?.id === category.id" 
-  class="category-filters"
->
-  <a (click)="setCategoryFilter(category)">{{ category.name }}</a>
+<div id="category-list">
+  <div 
+    *ngFor="let category of categories" 
+    [class.active]="categoryFilter?.id === category.id" 
+    class="category-filters"
+  >
+    <a (click)="setCategoryFilter(category)">{{ category.name }}</a>
+  </div>
 </div>

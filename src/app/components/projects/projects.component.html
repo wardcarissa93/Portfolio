@@ -1,22 +1,23 @@
 <div id="projects-component">
   <section class="filters">
-    <h2>Filter Projects by Category and/or Tag</h2>
     <div id="filter-title-button">
-
+      <h2>Filter Projects by Category and/or Tag</h2>
+      <button (click)="clearFilters()">Clear Filters</button>
     </div>
-    <div id="categories">
-      <app-categories
-        [categoryFilter]="categoryFilter"
-        (newCategoryFilterEvent)="setCategoryFilter($event)"
-      ></app-categories>
+    <div id="categories-tags">
+      <div id="categories">
+        <app-categories
+          [categoryFilter]="categoryFilter"
+          (newCategoryFilterEvent)="setCategoryFilter($event)"
+        ></app-categories>
+      </div>
+      <div id="tags">
+        <app-tags
+          [tagFilter]="tagFilter"
+          (newTagFilterEvent)="setTagFilter($event)"
+        ></app-tags>
+      </div>
     </div>
-    <div id="tags">
-      <app-tags
-        [tagFilter]="tagFilter"
-        (newTagFilterEvent)="setTagFilter($event)"
-      ></app-tags>
-    </div>
-    <button (click)="clearFilters()">Clear Filters</button>
   </section>
   <div id="projects-fish-div">
     <section id="all-projects">
