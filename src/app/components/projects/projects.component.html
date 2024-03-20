@@ -2,9 +2,12 @@
   <section class="filters">
     <div id="filter-title-button">
       <h3>Filter Projects <span>by Category and/or Tag</span></h3>
-      <button (click)="clearFilters()">Clear Filters</button>
+      <div id="filter-buttons">
+        <button (click)="clearFilters()" id="clear-filters">Clear Filters</button>
+        <button (click)="toggleFilters()" id="open-close-filters">{{ filtersVisible ? 'Close' : 'Open' }}</button>
+      </div>
     </div>
-    <div id="categories-tags">
+    <div id="categories-tags" [class.hidden]="!filtersVisible">
       <div id="categories">
         <app-categories
           [categoryFilter]="categoryFilter"
