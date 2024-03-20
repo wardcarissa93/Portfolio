@@ -37,6 +37,7 @@
                     border-radius: 0.875rem;
                     border: 2px solid #ffb400;
                     background-color: #ffca3a;
+                    cursor: pointer;
 
                     &:hover {
                         border: 2px solid #011627;
@@ -46,7 +47,6 @@
                 #clear-filters {
                     width: 6rem;
                     border-radius: 0.875rem;
-                    cursor: pointer;
                     font-family: 'Fira', sans-serif;
                 }
             }
@@ -119,6 +119,18 @@
 
                 .project-excerpt {
                     height: 9rem;
+                }
+
+                button {
+                    height: 1.75rem;
+                    border-radius: 0.875rem;
+                    border: 2px solid #ffb400;
+                    background-color: #ffca3a;
+                    cursor: pointer;
+
+                    &:hover {
+                        border: 2px solid #011627;
+                    }
                 }
 
                 .category-name, .tag-names {
