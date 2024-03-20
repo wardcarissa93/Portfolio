@@ -7,6 +7,11 @@
     margin: 0 auto;
     position: sticky;
     top: 30rem;
+    display: none;
+
+    @media (min-width: 600px) {
+        display: block;
+    }
 
     .dorsal-fin {
         width: 4rem;
