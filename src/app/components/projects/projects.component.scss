@@ -92,52 +92,44 @@
         }
     }
 
+    .line {
+        width: 90%;
+        height: 0.125rem;
+        background-color: #011627;
+        margin: 0 auto;
+    }
+
     #projects-fish-div {
         display: flex;
-        // display:none;
 
         #all-projects {
             display: grid;
-            width: 67%;
-        
-            @media (min-width: 600px) {
-                grid-template-columns: repeat(2, 1fr);
+
+            @media (min-width: 900px) {
+                grid-template-columns: repeat(2, 20rem);
             }
-        
-            @media (min-width: 960px) {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        
+
             #project-div {
                 padding: 0.5rem;
-            
+                width: 18rem;
+
                 &.hidden {
                     display: none;
                 }
-    
-                @media (min-width: 600px) {
-                    .project-excerpt {
-                        height: 9rem;
-                        display: flex;
-                    }
+
+                .project-excerpt {
+                    height: 9rem;
                 }
-            
-                button {
-                    cursor: pointer;
-                }
-            
+
                 .category-name, .tag-names {
                     font-size: 12px;
                     cursor: pointer;
                 }
             }
         }
+
+        app-fish {
+            width: 100%;
+        }
     }
 }
-
-#projects-filter-div {
-    display: flex;
-   
-
-}
-
