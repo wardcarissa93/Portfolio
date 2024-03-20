@@ -36,6 +36,9 @@ export class ProjectsComponent implements OnInit {
     private router: Router,
   ) {}
 
+  // Define a variable to track filter visibility
+  filtersVisible = false;
+
   projects: Project[] = [];
   getProjects(): void {
     this.projectService
@@ -78,6 +81,11 @@ export class ProjectsComponent implements OnInit {
   clearFilters() {
     this.categoryFilter = undefined;
     this.tagFilter = undefined;
+  }
+
+  // Method to toggle filters visibility
+  toggleFilters(): void {
+    this.filtersVisible = !this.filtersVisible;
   }
 
   @Input() selectedProject: Project | undefined;

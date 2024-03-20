@@ -1,8 +1,10 @@
-<h3>Tags:</h3>
-<div 
-  *ngFor="let tag of tags" 
-  [class.active]="tagFilter?.id === tag.id"
-  class="tag-filters"
->
-  <a (click)="setTagFilter(tag)">{{ tag.name }}</a>
+<h4>Tags:</h4>
+<div id="tag-list">
+  <div 
+    *ngFor="let tag of tags" 
+    [class.active]="tagFilter?.id === tag.id"
+    class="tag-filters"
+  >
+    <a (click)="setTagFilter(tag)">{{ tag.name }}</a>
+  </div>
 </div>
