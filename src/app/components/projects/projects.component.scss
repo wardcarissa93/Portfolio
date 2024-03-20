@@ -1,56 +1,155 @@
 #projects-component {
     display: flex;
     flex-direction: column;
+    width: 100%;
 
     .filters {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start;
-        width: 90%;
-        margin: 1rem auto;
-        // border-left: 1px solid black;
-        // padding: 0 0.5rem;
-        border: 3px solid orange;
+        border: 2px solid fuchsia;
+        margin: 0.5rem;
 
         #filter-title-button {
             display: flex;
+            flex-direction: column;
             width: 100%;
-            justify-content: space-evenly;
-            border: 2px solid orange;
-            
+            align-items: center;
+            border: 2px solid blue;
+
+            @media (min-width: 480px) {
+                flex-direction: row;
+                justify-content: space-evenly;
+            }
+
+            h3 {
+                margin: 0.5rem 0;
+
+                span {
+                    display: none;
+
+                    @media (min-width: 480px) {
+                        display: inline;
+                    }
+                }
+            }
+
             button {
-                height: 2rem;
-                margin: 1.25rem 1.75rem;
-                border-radius: 1rem;
+                height: 1.75rem;
+                width: 6rem;
+                border-radius: 0.875rem;
                 cursor: pointer;
+                font-family: 'Fira', sans-serif;
             }
         }
 
         #categories-tags {
             display: flex;
+            flex-direction: column;
             width: 100%;
-
-            app-categories, app-tags {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                border: 2px solid orange;
-                height: 100%;
-            }
+            align-items: center;
 
             #categories {
-                width: 33%;
+                width: 100%;
+
+                app-categories {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    align-items: center;
+                    border: 2px solid gold;
+                }
             }
 
             #tags {
-                width: 67%;
+                width: 100%;
+
+                app-tags {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    align-items: center;
+                    border: 2px solid lime;
+                }
             }
         }
     }
+
+    // .filters {
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    //     justify-content: flex-start;
+    //     width: 90%;
+    //     margin: 1rem auto;
+    //     // border-left: 1px solid black;
+    //     // padding: 0 0.5rem;
+    //     // border: 3px solid orange;
+
+    //     #filter-title-button {
+    //         display: flex;
+    //         width: 100%;
+    //         justify-content: space-evenly;
+    //         align-items: center;
+    //         flex-direction: column;
+
+    //         @media(min-width: 480px) {
+    //             flex-direction: row;
+    //         }
+
+    //         h3 {
+    //             margin: 0.75rem 0;
+
+    //             span {
+    //                 display: none;
+
+    //                 @media(min-width: 480px) {
+    //                     display: inline;
+    //                 }
+    //             }
+    //         }
+            
+    //         button {
+    //             height: 2rem;
+    //             margin: 0.5rem 1.75rem;
+    //             border-radius: 1rem;
+    //             width: 6rem;
+    //             cursor: pointer;
+    //         }
+    //     }
+
+    //     #categories-tags {
+    //         display: flex;
+    //         width: 100%;
+    //         flex-direction: column;
+    //         align-items: center;
+
+    //         @media (min-width: 480px) {
+    //             justify-content: space-between;
+    //             flex-direction: row;
+    //         }
+
+    //         app-categories, app-tags {
+    //             display: flex;
+    //             flex-direction: column;
+    //             align-items: center;
+    //             // border: 2px solid orange;
+    //             height: 100%;
+    //         }
+
+    //         #categories {
+    //             width: 30%;
+    //         }
+
+    //         #tags {
+    //             width: 60%;
+    //         }
+    //     }
+    // }
     
     #projects-fish-div {
-        display: flex;
+        // display: flex;
+        display:none;
 
         #all-projects {
             display: grid;
