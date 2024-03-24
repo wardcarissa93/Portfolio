@@ -79,12 +79,11 @@
             width: 0;
             height: 0;
             z-index: 1;
-            border-top: 0.5rem solid transparent;
-            border-bottom: 0.5rem solid transparent;
-            border-left: 2.5rem solid #279ce3;
+            border-top: 0.25rem solid transparent;
+            border-bottom: 0.25rem solid transparent;
+            border-left: 0.5rem solid #113f8f;
             position: relative;
-            top: 2rem;
-            right: 1.5rem;
+            top: 2.25rem;
         }
 
         .fish-eye {
@@ -94,6 +93,7 @@
             border-radius: 50%;
             z-index: 1;
             position: relative;
+            top: 0.5rem;
             left: 1.5rem;
             display: flex;
             align-items: center;
@@ -121,7 +121,7 @@
             z-index: 1;
             position: relative;
             left: 2rem;
-            bottom: 0.25rem;
+            top: 0.25rem;
 
             .pectoral-fin-divider {
                 width: 0;
@@ -140,7 +140,7 @@
             height: 5rem;
             position: relative;
             left: 3.5rem;
-            bottom: 3.75rem;
+            bottom: 3.25rem;
             display: flex;
             align-items: center;
 
@@ -185,7 +185,7 @@
             height: 80px;
             position: relative;
             left: 3.5rem;
-            bottom: 8.75rem;
+            bottom: 8.25rem;
             
             .scale-cover-A-column {
                 width: 1rem;
@@ -238,7 +238,7 @@
             height: 5rem;
             position: relative;
             left: 4rem;
-            bottom: 8.75rem;
+            bottom: 8.25rem;
 
             .scale-column-B {
                 position: relative;
@@ -278,7 +278,7 @@
             height: 64px;
             position: relative;
             left: 3.95rem;
-            bottom: 18.375rem;
+            bottom: 17.875rem;
 
             .scale-cover-B-column {
                 position: relative;

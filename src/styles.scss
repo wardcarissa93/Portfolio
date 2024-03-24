@@ -1,9 +1,13 @@
+html {
+    box-sizing: border-box;
+}
+
 body {
     overflow-x: hidden;
     margin: 0;
-    background: rgb(163,245,238);
-    background: linear-gradient(180deg, rgba(163,245,238,1) 0%, rgba(38,155,227,1) 20%);
+    background-color: #113f8f;
     min-height: 100vh;
+    width: 100%;
 }
 
 app-projects {
