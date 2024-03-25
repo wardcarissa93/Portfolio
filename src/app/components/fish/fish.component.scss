@@ -8,6 +8,7 @@
     position: sticky;
     top: 30rem;
     display: none;
+    z-index: 2rem;
 
     @media (min-width: 600px) {
         display: block;

@@ -40,7 +40,7 @@
                     cursor: pointer;
 
                     &:hover {
-                        border: 2px solid #011627;
+                        border: 2px solid #0f1332;
                     }
                 }
 
@@ -95,7 +95,7 @@
     .line {
         width: 90%;
         height: 0.125rem;
-        background-color: #011627;
+        background-color: #90d8ff;
         margin: 0 auto;
     }
 
@@ -117,6 +117,10 @@
                     display: none;
                 }
 
+                h2 {
+                    color: #90d8ff;
+                }
+
                 .project-excerpt {
                     height: 9rem;
                 }
@@ -124,12 +128,12 @@
                 button {
                     height: 1.75rem;
                     border-radius: 0.875rem;
-                    border: 2px solid #ffb400;
-                    background-color: #ffca3a;
+                    border: 2px solid #f49097;
+                    background-color: #efc7c2;
                     cursor: pointer;
 
                     &:hover {
-                        border: 2px solid #011627;
+                        border: 2px solid #0f1332;
                     }
                 }
 
