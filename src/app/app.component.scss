@@ -10,22 +10,14 @@
         align-items: center;
         font-family: 'Fira Sans', 'sans-serif';
         padding: 0.5rem 1rem;
-        background-color: #011627;
-        color: white;
+        background-color: #eff4ff;
+        color: #0f1132;
         position: relative;
 
         h1 {
             margin: 0;
             display: flex;
             flex-grow: 1;
-
-            #title-span {
-                display: none;
-
-                @media(min-width: 480px) {
-                    display: flex;
-                }
-            }
         }
 
         .hamburger {
@@ -43,7 +35,7 @@
             right: 2rem;
 
             span {
-                background-color: white;
+                background-color: #0f1132;
                 height: 0.25rem;
                 width: 2.25rem;
                 display: block;
@@ -62,7 +54,7 @@
                 transform: rotate(-45deg) translate(0.5rem, -0.5rem);
             }
 
-            @media (min-width: 960px) {
+            @media (min-width: 720px) {
                 display: none;
             }
         }
@@ -74,8 +66,8 @@
             top: 100%;
             right: 0;
             left: 0;
-            background-color: #011627;
-            color: white;
+            background-color: #eff4ff;
+            color: #0f1132;
             padding: 10px;
             z-index: 9;
 
@@ -90,7 +82,7 @@
                 li {
                     a {
                         text-decoration: none;
-                        color: white;
+                        color: #0f1132;
                         transition: background-color 0.3s ease;
 
                         &:hover {
@@ -105,7 +97,7 @@
                 justify-content: center;
             }
 
-            @media (min-width: 960px) {
+            @media (min-width: 720px) {
                 display: flex;
                 width: 60%;
                 position: relative;
@@ -117,7 +109,7 @@
                     width: 100%;
 
                     li+li {
-                        border-left: 1px solid white;
+                        border-left: 1px solid #0f1132;
                         margin-left: 1rem;
                         padding-left: 1rem;
                     }
@@ -127,22 +119,42 @@
     }
 
     main {
-        display: flex;
         font-family: 'Fira Sans', 'sans-serif';
-        color: #011627;
+        color: #eff4ff;
+        overflow-x: hidden;
 
-        .projects {
-            width: 90%;
+        #sky {
+            height: 1.75rem;
+            width: 100%;
+            background-color: #eff4ff;
+            position: absolute;
+            top: 3.4rem;
+            overflow-x: hidden;
         }
 
-        #project {
-            padding: 1rem;
+        #layer-1 {
+            width: 300rem;
+            display: flex;
+            overflow-x: hidden;
+            position: relative;
+            animation: waveAnimation 30s linear infinite;
+        }
+
+        #layer-2 {
+            width: 300rem;
+            height: 3rem;
+            display: flex;
+            position: relative;
+            bottom: 3rem;
+            left: -1.5rem;
+            overflow-x: hidden;
+            animation: waveAnimation 40s linear infinite;
         }
     }
 
     footer {
         display: flex;
-        color: #011627;
+        color: #eff4ff;
         justify-content: flex-end;
         margin-right: 3rem;
         font-family: 'Fira Sans', 'sans-serif';

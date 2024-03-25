@@ -1,8 +1,25 @@
 #project-detail-div {
     padding: 0.5rem;
 
+    
     &.hidden {
         display: none;
+    }
+
+    button {
+        height: 1.75rem;
+        border-radius: 0.875rem;
+        border: 2px solid #f49097;
+        background-color: #efc7c2;
+        cursor: pointer;
+
+        &:hover {
+            border: 2px solid #0f1332;
+        }
+    }
+
+    h2 {
+        color: #90d8ff;
     }
 
     .category-name, .tag-names {
