@@ -120,12 +120,35 @@
 
     main {
         font-family: 'Fira Sans', 'sans-serif';
-        color: #eff4ff;;
+        color: #eff4ff;
+        overflow-x: hidden;
 
         #sky {
             height: 1.75rem;
             width: 100%;
             background-color: #eff4ff;
+            position: absolute;
+            top: 3.4rem;
+            overflow-x: hidden;
+        }
+
+        #layer-1 {
+            width: 300rem;
+            display: flex;
+            overflow-x: hidden;
+            position: relative;
+            animation: waveAnimation 30s linear infinite;
+        }
+
+        #layer-2 {
+            width: 300rem;
+            height: 3rem;
+            display: flex;
+            position: relative;
+            bottom: 3rem;
+            left: -1.5rem;
+            overflow-x: hidden;
+            animation: waveAnimation 40s linear infinite;
         }
     }
 

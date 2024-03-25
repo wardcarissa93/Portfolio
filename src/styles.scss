@@ -10,6 +10,27 @@ body {
     width: 100%;
 }
 
+.wave {
+    width: 3rem;
+    height: 3rem;
+    background-color: #eff4ff;
+    border-radius: 50%;
+}
+
 app-projects {
     width: 100%;
+}
+
+@keyframes waveAnimation {
+    0% {
+        right: 0%;
+    }
+
+    50% {
+        right: 10%;
+    }
+
+    100% {
+        right: 0%;
+    }
 }
