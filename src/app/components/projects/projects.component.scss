@@ -126,14 +126,17 @@
                 margin: 0.5rem;
                 width: 16rem;
                 height: 20rem;
+                background-color: rgba(239,244,255,0.8);
+                border: 2px solid rgba(15,19,50,0.8);
+                color: #0f1332;
 
                 &.hidden {
                     display: none;
                 }
 
-                h2 {
-                    color: #90d8ff;
-                }
+                // h2 {
+                //     color: #90d8ff;
+                // }
 
                 .project-excerpt {
                     height: 9rem;
