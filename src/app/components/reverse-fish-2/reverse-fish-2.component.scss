@@ -1,5 +1,5 @@
 // Importing variables
-@use 'reverse-fish-variables' as *;
+@use 'reverse-fish-2-variables' as *;
 
 .reverse-fish-container {
     width: 15rem;
@@ -12,7 +12,7 @@
         display: block;
     }
 
-    @media (min-width: 1500px) {
+    @media (min-width: 900px) {
         display: none;
     }
 

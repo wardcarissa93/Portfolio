@@ -17,6 +17,7 @@ import { TagsComponent } from '../tags/tags.component';
 import { FishComponent } from '../fish/fish.component';
 import { ReverseFishComponent } from '../reverse-fish/reverse-fish.component';
 import { Fish2Component } from '../fish-2/fish-2.component';
+import { ReverseFish2Component } from '../reverse-fish-2/reverse-fish-2.component';
 
 @Component({
   selector: 'app-projects',
@@ -30,6 +31,7 @@ import { Fish2Component } from '../fish-2/fish-2.component';
     FishComponent,
     Fish2Component,
     ReverseFishComponent,
+    ReverseFish2Component
   ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
