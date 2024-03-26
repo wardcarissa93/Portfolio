@@ -15,6 +15,7 @@ import { ProjectComponent } from '../project/project.component';
 import { CategoriesComponent } from '../categories/categories.component';
 import { TagsComponent } from '../tags/tags.component';
 import { FishComponent } from '../fish/fish.component';
+import { ReverseFishComponent } from '../reverse-fish/reverse-fish.component';
 import { Fish2Component } from '../fish-2/fish-2.component';
 
 @Component({
@@ -28,6 +29,7 @@ import { Fish2Component } from '../fish-2/fish-2.component';
     TagsComponent,
     FishComponent,
     Fish2Component,
+    ReverseFishComponent,
   ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'

@@ -105,9 +105,11 @@
 
         #all-projects {
             display: grid;
+            grid-template-rows: repeat(4, 25rem);
 
             @media (min-width: 900px) {
                 grid-template-columns: repeat(2, 20rem);
+                grid-template-rows: repeat(2, 25rem);
             }
 
             @media (min-width: 1200px) {
@@ -116,11 +118,14 @@
 
             @media (min-width: 1500px) {
                 grid-template-columns: repeat(4, 20rem);
+                grid-template-rows: 25rem;
             }
 
             #project-div {
-                padding: 1rem;
-                width: 18rem;
+                padding: 0.5rem 1rem;
+                margin: 0.5rem;
+                width: 16rem;
+                height: 20rem;
 
                 &.hidden {
                     display: none;
