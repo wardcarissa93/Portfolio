@@ -1,0 +1,346 @@
+// Importing variables
+@use 'reverse-fish-2-variables' as *;
+
+.reverse-fish-container {
+    width: 15rem;
+    height: 10rem;
+    margin: 6rem auto;
+    display: none;
+    z-index: 2;
+
+    @media (min-width: 600px) {
+        display: block;
+    }
+
+    @media (min-width: 900px) {
+        display: none;
+    }
+
+    .fish-body {
+        width: 10rem;
+        height: 5rem;
+        background-color: $primary-color;
+        border-radius: 50%;
+        position: relative;
+        top: 2.5rem;
+        border: 2px solid $primary-color;
+        z-index: 1;
+
+        .all-scales-A {
+            width: 7rem;
+            height: 5rem;
+            position: relative;
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            right: 0.9rem;
+            
+            .scale-column-A {
+                width: 1rem;
+                height: 5rem;
+            }
+
+            #scale-column-A-1 {
+                z-index: 10;
+            }
+
+            #scale-column-A-2 {
+                z-index: 8;
+            }
+
+            #scale-column-A-3,
+            #scale-column-A-4,
+            #scale-column-A-5 {
+                height: 3rem;
+            }
+
+            #scale-column-A-3 {
+                z-index: 6
+            }
+
+            #scale-column-A-4 {
+                z-index: 4;
+            }
+
+            #scale-column-A-5 {
+                z-index: 2;
+            }
+
+            #scale-column-A-6 {
+                z-index: 0;
+                height: 1rem;
+            }
+        }
+
+        .scale-covers-A {
+            width: 112px;
+            height: 80px;
+            position: relative;
+            bottom: 5rem;
+            right: 0.3rem;
+
+            .scale-cover-A-column {
+                width: 1rem;
+                height: 5rem;
+                position: relative;
+            }
+
+            #scale-cover-A-column-1 {
+                z-index: 10;
+                left: 6rem;
+            }
+
+            #scale-cover-A-column-2 {
+                z-index: 8;
+                left: 5rem;
+                bottom: 5rem;
+            }
+
+            #scale-cover-A-column-3,
+            #scale-cover-A-column-4,
+            #scale-cover-A-column-5 {
+                height: 3rem;
+            }
+
+            #scale-cover-A-column-3 {
+                z-index: 6;
+                left: 4rem;
+                bottom: 9.2rem;
+            }
+
+            #scale-cover-A-column-4 {
+                z-index: 4;
+                left: 3rem;
+                bottom: 12.3rem;
+            }
+
+            #scale-cover-A-column-5 {
+                z-index: 2;
+                left: 2rem;
+                bottom: 15.4rem;
+            }
+
+            #scale-cover-A-column-6 {
+                z-index: 0;
+                left: 1rem;
+                bottom: 17.5rem;
+                height: 1rem;
+            }
+        }
+
+        .all-scales-B {
+            width: 6rem;
+            height: 5rem;
+            position: relative;
+            bottom: 10.2rem;
+            left: 0.1rem;
+
+            .scale-column-B {
+                position: relative;
+            }
+
+            #scale-column-B-1 {
+                z-index: 9;
+                top: 0.5rem;
+                left: 4.5rem;
+            }
+
+            #scale-column-B-2 {
+                z-index: 7;
+                bottom: 3rem;
+                left: 3.5rem;
+            }
+
+            #scale-column-B-3 {
+                z-index: 5;
+                left: 2.5rem;
+                bottom: 7rem;
+            }
+
+            #scale-column-B-4 {
+                z-index: 3;
+                left: 1.5rem;
+                bottom: 11rem;
+            }
+
+            #scale-column-B-5 {
+                z-index: 1;
+                left: 0.5rem;
+                bottom: 14.1rem;
+            }
+        }
+
+        .scale-covers-B {
+            width: 112px;
+            height: 64px;
+            position: relative;
+            bottom: 14.75rem;
+            left: 0.5rem;
+
+            .scale-cover-B-column {
+                position: relative;
+            }
+
+            #scale-cover-B-column-1 {
+                z-index: 9;
+                left: 5rem;
+            }
+
+            #scale-cover-B-column-2 {
+                z-index: 7;
+                left: 4rem;
+                bottom: 4rem;
+            }
+
+            #scale-cover-B-column-3 {
+                z-index: 5;
+                left: 3rem;
+                bottom: 8rem;
+            }
+
+            #scale-cover-B-column-4 {
+                z-index: 3;
+                left: 2rem;
+                bottom: 11.73rem;
+            }
+
+            #scale-cover-B-column-5 {
+                z-index: 1;
+                left: 1rem;
+                bottom: 15rem;
+            }
+        }
+
+        .pectoral-fin {
+            width: 0;
+            height: 0;
+            border-top: 1rem solid transparent;
+            border-bottom: 1rem solid transparent;
+            border-left: 1.5rem solid $secondary-color;
+            z-index: 11;
+            position: relative;
+            bottom: 17.5rem;
+            left: 5.75rem;
+            
+            .pectoral-fin-divider {
+                width: 0;
+                height: 0;
+                border-top: 1rem solid transparent;
+                border-bottom: 1rem solid transparent;
+                border-left: 0.25rem solid $primary-color;
+                position: relative;
+                right: 1.5rem;
+                bottom: 1rem;
+            }
+        }
+
+        .fish-eye {
+            width: 0.75rem;
+            height: 0.75rem;
+            background-color: white;
+            border-radius: 50%;
+            z-index: 10;
+            position: relative;
+            bottom: 20rem;
+            left: 7.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .fish-pupil {
+                width: 0.4rem;
+                height: 0.4rem;
+                background-color: $blackish;
+                z-index: 11;
+                border-radius: 50%;
+                margin-left: 0.25rem;
+
+                &:hover {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        .fish-mouth {
+            width: 0;
+            height: 0;
+            z-index: 10;
+            border-top: 0.25rem solid transparent;
+            border-bottom: 0.25rem solid transparent;
+            border-right: 0.5rem solid #113f8f;
+            position: relative;
+            bottom: 19.5rem;
+            left: 9.65rem;
+        }
+    }
+
+    .caudal-fin {
+        width: 0;
+        height: 0;
+        border-top: 1.75rem solid transparent;
+        border-bottom: 1.75rem solid transparent;
+        border-left: 1.25rem solid $secondary-color;
+        position: relative;
+        right: 0.125rem;
+        bottom: 2rem;
+        z-index: 0;
+    }
+
+    .dorsal-fin {
+        width: 4rem;
+        height: 2rem;
+        background-color: $secondary-color;
+        transform: skew(25deg) rotate(-7.5deg);
+        position: relative;
+        bottom: 8.75rem;
+        left: 2.75rem;
+        z-index: 0;
+        display: flex;
+
+        .dorsal-fin-segment {
+            width: 10%;
+            height: 100%;
+
+            &+.dorsal-fin-segment {
+                border-left: 1px solid $blackish;
+            }
+        }
+    }
+
+    .pelvic-fin {
+        width: 2rem;
+        height: 2rem;
+        background-color: $secondary-color;
+        transform: skew(-25deg) rotate(7.5deg);
+        z-index: 0;
+        position: relative;
+        bottom: 2.6rem;
+        left: 4rem;
+        display: flex;
+
+        .pelvic-fin-segment {
+            width: 0.8rem;
+            height: 100%;
+
+            &+.pelvic-fin-segment {
+                border-left: 1px solid $blackish;
+            }
+        }
+    }
+}
+
+.scale {
+    height: 0.9rem;
+    width: 0.9rem;
+    background-color: $primary-color;
+    border: 1px solid $darker-red;
+    border-radius: 50%;
+}
+
+.scale-cover {
+    height: 1rem;
+    width: 0.5rem;
+    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 2rem;
+    background-color: $primary-color;
+}

@@ -1,7 +1,7 @@
 // Importing variables
-@use 'fish-variables' as *;
+@use 'fish-2-variables' as *;
 
-.fish-container {
+.fish-2-container {
     width: 15rem;
     height: 10rem;
     margin: 7.5rem auto;
@@ -10,10 +10,6 @@
 
     @media (min-width: 600px) {
         display: block;
-    }
-
-    @media (min-width: 900px) {
-        display: none;
     }
 
     .dorsal-fin {
@@ -325,7 +321,7 @@
     height: 0.9rem;
     width: 0.9rem;
     background-color: $primary-color;
-    border: 1px solid $darker-pink;
+    border: 1px solid $darker-yellow;
     border-radius: 50%;
 }
 
