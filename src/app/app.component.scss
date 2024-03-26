@@ -137,7 +137,7 @@
             display: flex;
             overflow-x: hidden;
             position: relative;
-            animation: waveAnimation 30s linear infinite;
+            animation: waveAnimation 3s linear infinite;
         }
 
         #layer-2 {
@@ -148,7 +148,7 @@
             bottom: 3rem;
             left: -1.5rem;
             overflow-x: hidden;
-            animation: waveAnimation 40s linear infinite;
+            animation: waveAnimation 4s linear infinite;
         }
     }
 
