@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 import { Project } from './models/project';
 import { Category } from './models/category';
 import { Tag } from './models/tag';
@@ -8,7 +9,7 @@ import { Tag } from './models/tag';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Portfolio';
   year = new Date().getFullYear();
   author = 'Carissa Ward';
@@ -18,6 +19,16 @@ export class AppComponent {
   tagFilter: Tag | undefined;
 
   selectedProject?: Project;
+
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd && this.menuOpen) {
+        this.toggleMenu();
+      }
+    });
+  }
 
   setCategoryFilter(category: Category): void {
     if (this.categoryFilter === category) {
