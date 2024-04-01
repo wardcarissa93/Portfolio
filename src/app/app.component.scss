@@ -156,10 +156,11 @@
         display: flex;
         color: #eff4ff;
         justify-content: flex-end;
-        margin-right: 3rem;
+        margin: 0 3rem;
         font-family: 'Fira Sans', 'sans-serif';
         position: absolute;
         bottom: 0;
         right: 0;
+        z-index: 1
     }
 }
