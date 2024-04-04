@@ -1,7 +1,6 @@
 #home-component {
     width: 100%;
     height: 78vh;
-    // border: 3px solid lime;
     overflow: hidden;
 
     #seaweed-div { 
@@ -10,21 +9,18 @@
         position: relative;
         top: 3rem;
         display: flex;
-        // border: 3px solid fuchsia;
 
         .seaweed-container {
             min-width: 12rem;
             max-width: 12rem;
             height: 100%;
             position: relative;
-            // border: 2px solid yellow;
 
             .seaweed-plant {
                 height: 35rem;
                 width: 100%;
                 position: relative;
                 overflow: hidden;
-                // border: 2px solid orange;
 
                 .leaf {
                     position: relative;
@@ -42,7 +38,7 @@
                     width: 2rem;
                     border-radius: 50%;
                     border: 20px solid transparent;
-                    border-left: 10px solid #a9ba52;
+                    border-left: 10px solid #83923a;
                     position: relative;
                 }
 
@@ -76,14 +72,14 @@
                 }
 
                 .leaf-1 {
-                    background-color: #a9ba52;
+                    background-color: #83923a;
                     border-radius: 2rem 0;
                     transform: rotate(-15deg);
                     left: 6.75rem;
                 }
 
                 .leaf-2 {
-                    background-color: #a9ba52;
+                    background-color: #83923a;
                     border-radius: 0 2rem;
                     transform: rotate(15deg);
                     left: 5rem;
@@ -172,7 +168,7 @@
                     width: 5rem;
                     border-radius: 50%;
                     border: 15px solid transparent;
-                    border-left: 15px solid #0c2200;
+                    border-left: 15px solid #1d5200;
                     position: relative;
                 }
 
@@ -198,14 +194,14 @@
                 }
 
                 .leaf-5 {
-                    background-color: #0c2200;
+                    background-color: #1d5200;
                     border-radius: 0 2rem;
                     transform: rotate(15deg);
                     left: 7rem;
                 }
 
                 .leaf-6 {
-                    background-color: #0c2200;
+                    background-color: #1d5200;
                     border-radius: 2rem 0;
                     transform: rotate(-15deg);
                     left: 8.25rem;
@@ -231,7 +227,7 @@
                         width: 5rem;
                         border-radius: 50%;
                         border: 1px solid transparent;
-                        border-right: 14px solid #0c2200;
+                        border-right: 14px solid #1d5200;
                     }
 
                     .tip-cover {
@@ -245,5 +241,55 @@
                 }
             }
         }
+    }
+
+    #home-title-div {
+        width: 18rem;
+        height: 18rem;
+        position: relative;
+        bottom: 32rem;
+        margin: 0 auto;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-image: radial-gradient(circle, rgba(255,255,255,0.8) 25%, rgba(144,216,255,0.8));
+
+        h3 {
+            font-style: italic;
+            font-size: 20px;
+            margin: 0;
+            color: #0f1132;
+        }
+    }
+
+    #home-fish-div {
+        width: 100%;
+        height: 28rem;
+        position: relative;
+        border: 2px solid yellow;
+        bottom: 50rem;
+
+        &>* {
+            z-index: 0;
+            position: relative;
+        }
+
+        #home-fish-1 {
+            top: 11.25rem;
+        }
+
+        // #home-fish-2 {
+        //     right: 10rem;
+        //     bottom: 11rem;
+        // }
+
+        // #home-fish-3 {
+        //     left: 10rem;
+        //     bottom: 28.5rem;
+        // }
     }
 }
