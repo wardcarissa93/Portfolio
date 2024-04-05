@@ -28,6 +28,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            margin: 0 auto;
     
             img {
                 height: 18rem;
@@ -58,11 +59,6 @@
             width: 304px;
             height: 32rem;
             border: 2px solid yellow;
-
-            app-home-fish-1 {
-                position: relative;
-                left: 3rem;
-            }
         }
     }
 }
