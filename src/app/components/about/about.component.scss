@@ -3,4 +3,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    #photo-bubble {
+        height: 10rem;
+        width: 10rem;
+        background-image: radial-gradient(circle, rgba(255,255,255,0.8) 25%, rgba(144,216,255,0.8) 100%);
+        border-radius: 50%;
+    }
 }
