@@ -1,13 +1,25 @@
 #about-component {
     margin: 0 auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
     #photo-bubble {
         height: 18rem;
         width: 18rem;
-        background-image: radial-gradient(circle, rgba(255,255,255,0.8) 25%, rgba(144,216,255,0.8) 100%);
+        background-image: radial-gradient(circle, rgba(255,255,255,0.2) 25%, rgba(17,63,143,1) 100%);
         border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            height: 18rem;
+            width: 18rem;
+            border-radius: 50%;
+            object-fit: cover;
+            z-index: -1;
+        }
     }
 }
