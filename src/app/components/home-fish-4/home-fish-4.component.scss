@@ -1,12 +1,16 @@
-@use '../fish-2/fish-2-variables' as *;
+@use '../reverse-fish-2/reverse-fish-2-variables' as *;
 
-.home-fish-1-container {
+.home-fish-4-container {
     width: 12rem;
     height: 10rem;
     margin: 6rem auto;
     padding-left: 2.5rem;
     z-index: 2;
-    display: block;
+    display: none;
+
+    @media (min-width: 1240px) {
+        display: block;
+    }
 
     .fish-body {
         width: 10rem;
@@ -311,7 +315,7 @@
     height: 0.9rem;
     width: 0.9rem;
     background-color: $primary-color;
-    border: 1px solid $darker-yellow;
+    border: 1px solid $darker-purple;
     border-radius: 50%;
 }
 
