@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [],
+  imports: [
+  ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss'
 })
