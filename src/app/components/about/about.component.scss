@@ -1,25 +1,68 @@
 #about-component {
-    margin: 0 auto;
+    width: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+    bottom: 1rem;
+    border: 2px solid green;
 
-    #photo-bubble {
-        height: 18rem;
-        width: 18rem;
-        background-image: radial-gradient(circle, rgba(255,255,255,0.2) 25%, rgba(17,63,143,1) 100%);
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    #fish-column-1 {
+        display: none;
 
-        img {
+        @media (min-width: 960px) {
+            display: block;
+            width: 304px;
+            height: 32rem;
+            border: 2px solid yellow;
+        }
+    }
+
+    #about-div {
+
+        #photo-bubble {
             height: 18rem;
             width: 18rem;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.2) 25%, rgba(17,63,143,1) 100%);
             border-radius: 50%;
-            object-fit: cover;
-            z-index: -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    
+            img {
+                height: 18rem;
+                width: 18rem;
+                border-radius: 50%;
+                object-fit: cover;
+                z-index: -1;
+            }
+        }
+    
+        #about-me {
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            width: 18rem;
+            transition: 0.2s;
+    
+            @media (min-width: 384px) {
+                width: 22rem;
+            }
+        }
+    }
+
+    #fish-column-2 {
+        display: none;
+
+        @media (min-width: 960px) {
+            display: block;
+            width: 304px;
+            height: 32rem;
+            border: 2px solid yellow;
+
+            app-home-fish-1 {
+                position: relative;
+                left: 3rem;
+            }
         }
     }
 }
