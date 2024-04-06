@@ -9,7 +9,6 @@ export interface Project {
     url: string | null;
     published_date: string | null;
     images: string[] | null;
-    thumb: string | null;
     category_id: number | null;
     category: Category | null;
     tags: any;

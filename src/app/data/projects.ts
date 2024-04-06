@@ -10,7 +10,6 @@ export const PROJECTS: Project[] = [
       url: null,
       published_date: "2024",
       images: null,
-      thumb: null,
       category_id: 2,
       category: { id:  2, slug:  "front-end", name:  "Front End" },
       tags: [
@@ -38,7 +37,6 @@ export const PROJECTS: Project[] = [
       url: null,
       published_date: "2024",
       images: null,
-      thumb: null,
       category_id: 3,
       category: { id: 3, slug: "full-stack", name: "Full Stack" },
       tags: [
@@ -75,7 +73,6 @@ export const PROJECTS: Project[] = [
         "spectrum-gameplay-screen.png",
         "spectrum-congratulations-screen.png",
       ],
-      thumb: null,
       category_id: 2,
       category: { id:  2, slug:  "front-end", name:  "Front End" },
       tags: [
@@ -132,7 +129,6 @@ export const PROJECTS: Project[] = [
       url: "http://filmfindr.ca",
       published_date: "2024",
       images: null,
-      thumb: null,
       category_id: 2,
       category: { id:  2, slug:  "front-end", name:  "Front End" },
       tags: [
