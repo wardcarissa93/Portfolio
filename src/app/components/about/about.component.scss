@@ -19,22 +19,21 @@
             display: block;
             width: 304px;
             height: 32rem;
-            // border: 2px solid lime;
 
             .seaweed-container {
                 min-width: 12rem;
                 max-width: 12rem;
-                height: 100%;
+                height: 32rem;
                 position: relative;
                 left: 3.5rem;
-                // border: 2px solid orange;
+                border: 2px solid orange;
 
                 .seaweed-plant {
-                    height: 40rem;
-                    width: 100%;
+                    height: 35rem;
+                    width: 12rem;
                     position: relative;
                     overflow: hidden;
-                    // border: 2px solid cyan;
+                    border: 2px solid yellow;
 
                     .leaf {
                         position: relative;
@@ -44,254 +43,30 @@
                 }
 
                 #seaweed-plant-1 {
-                    z-index: 3;
-                    // border: 2px solid cyan;
 
                     .oval-1,
                     .oval-2 {
-                        height: 8rem;
-                        width: 2rem;
-                        border-radius: 50%;
-                        border: 20px solid transparent;
-                        border-left: 10px solid #83923a;
-                        position: relative;
+
                     }
 
                     .oval-1 {
-                        left: 5.75rem;
+
                     }
 
                     .oval-2 {
-                        transform: rotate(180deg);
-                        left: 3.55rem;
+
                     }
 
-                    #plant-1-oval-1 {
-                        top: 1rem;
-                    }
-
-                    #plant-1-oval-2 {
-                        bottom: 2.7rem;
-                    }
-
-                    #plant-1-oval-3 {
-                        bottom: 6.4rem;
-                    }
-
-                    #plant-1-oval-4 {
-                        bottom: 10.15rem;
-                    }
-
-                    #plant-1-oval-5 {
-                        bottom: 13.85rem;
-                    }
-
-                    #plant-1-oval-6 {
-                        bottom: 17.55rem;
-                    }
-
-                    .leaf-1 {
-                        background-color: #83923a;
-                        border-radius: 2rem 0;
-                        transform: rotate(-15deg);
-                        left: 6.75rem;
-                    }
-
-                    .leaf-2 {
-                        background-color: #83923a;
-                        border-radius: 0 2rem;
-                        transform: rotate(15deg);
-                        left: 5rem;
-                    }
-
-                    #plant-1-leaf-1 {
-                        bottom: 54rem;
-                    }
-
-                    #plant-1-leaf-2 {
-                        bottom: 48.5rem;
-                    }
-
-                    #plant-1-leaf-3 {
-                        bottom: 42.5rem;
-                    }
-
-                    #plant-1-leaf-4 {
-                        bottom: 37rem;
-                    }
-
-                    #plant-1-leaf-5 {
-                        bottom: 31rem;
-                    }
+                    
                 }
 
                 #seaweed-plant-2 {
-                    z-index: 2;
-                    bottom: 40rem;
-                    // border: 2px solid fuchsia;
 
-                    .oval-3,
-                    .oval-4 {
-                        height: 12rem;
-                        width: 4rem;
-                        border-radius: 50%;
-                        border: 7.5px solid transparent;
-                        border-left: 10px solid #4e721e;
-                        position: relative;
-                    }
-
-                    .oval-3 {
-                        left: 4rem;
-                    }
-
-                    .oval-4 {
-                        transform: rotate(180deg);
-                        left: 1.5rem;
-                    }
-
-                    #plant-2-oval-1 {
-                        top: 4rem;
-                    }
-
-                    #plant-2-oval-2 {
-                        top: 1.45rem;
-                    }
-
-                    #plant-2-oval-3 {
-                        bottom: 1.2rem;
-                    }
-
-                    #plant-2-oval-4 {
-                        bottom: 3.85rem;
-                    }
-
-                    .leaf-3 {
-                        background-color: #4e721e;
-                        border-radius: 2rem 0;
-                        transform: rotate(-15deg);
-                        left: 5rem;
-                    }
-
-                    .leaf-4 {
-                        background-color: #4e721e;
-                        border-radius: 0 2rem;
-                        transform: rotate(15deg);
-                        left: 4rem;
-                    }
-
-                    #plant-2-leaf-1 {
-                        bottom: 37.75rem;
-                    }
-
-                    #plant-2-leaf-2 {
-                        bottom: 28.25rem;
-                    }
-
-                    #plant-2-leaf-3 {
-                        bottom: 19.25rem;
-                    }
                 }
 
                 #seaweed-plant-3 {
-                    z-index: 1;
-                    bottom: 80rem;
 
-                    .oval-5,
-                    .oval-6 {
-                        height: 10rem;
-                        width: 5rem;
-                        border-radius: 50%;
-                        border: 15px solid transparent;
-                        border-left: 15px solid #1d5200;
-                        position: relative;
-                    }
-
-                    .oval-5 {
-                        left: 6.75rem;
-                    }
-
-                    .oval-6 {
-                        transform: rotate(180deg);
-                        left: 2.875rem;
-                    }
-
-                    #plant-3-oval-1 {
-                        top: 6rem;
-                    }
-
-                    #plant-3-oval-2 {
-                        top: 2.5rem;
-                    }
-
-                    #plant-3-oval-3 {
-                        bottom: 1.1rem;
-                    }
-
-                    #plant-3-oval-4 {
-                        bottom: 4.7rem;
-                    }
-                    
-                    .seaweed-tip-div {
-                        transform: rotate(40deg);
-                        position: relative;
-                        bottom: 44.65rem;
-                        left: 1rem;
-                        z-index: -1;
-
-                        .tip {
-                            height: 10rem;
-                            width: 5rem;
-                            border-radius: 50%;
-                            border: 1px solid transparent;
-                            border-right: 14px solid #1d5200;
-                        }
-
-                        .tip-cover {
-                            height: 5.1rem;
-                            width: 5rem;
-                            background-color: #113f8f;
-                            position: relative;
-                            left: 3rem;
-                            bottom: 5rem;
-                        }
-                    }
-
-                    .leaf-5 {
-                        background-color: #1d5200;
-                        border-radius: 0 2rem;
-                        transform: rotate(15deg);
-                        left: 7rem;
-                    }
-
-                    .leaf-6 {
-                        background-color: #1d5200;
-                        border-radius: 2rem 0;
-                        transform: rotate(-15deg);
-                        left: 8.25rem;
-                    }
-
-                    #plant-3-leaf-1 {
-                        bottom: 56.25rem;
-                    }
-
-                    #plant-3-leaf-2 {
-                        bottom: 48.5rem;
-                    }
-
-                    #plant-3-leaf-3 {
-                        bottom: 41.75rem;
-                    }
-
-                    #plant-3-leaf-4 {
-                        bottom: 34rem;
-                    }
                 }
-            }
-
-            app-fish-2 {
-                position: relative;
-                bottom: 32rem;
-                z-index: 2;
             }
         }
     }
@@ -326,6 +101,36 @@
     
             @media (min-width: 384px) {
                 width: 22rem;
+            }
+        }
+
+        #about-me-links {
+            width: 18rem;
+            height: 6.25rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            margin: 0 auto;
+
+            @media (min-width: 384px) {
+                flex-direction: row;
+                width: 22rem;
+                align-items: flex-start;
+            }
+
+            button {
+                width: 5rem;
+                height: 1.75rem;
+                border-radius: 0.875rem;
+                background-color: #efc7c2;
+                border: 2px solid #f49097;
+                color: #0f1132;
+                cursor: pointer;
+
+                &:hover {
+                    border: 2px solid #0f1132;
+                }
             }
         }
     }

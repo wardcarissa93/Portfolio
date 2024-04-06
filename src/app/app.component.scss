@@ -153,11 +153,13 @@
 
     footer {
         display: flex;
+        height: 3.5rem;
+        // border: 2px solid orange;
         color: #eff4ff;
         justify-content: flex-end;
-        margin: 0 3rem;
+        padding: 0 3rem;
         font-family: 'Fira Sans', 'sans-serif';
-        position: absolute;
+        position: sticky;
         bottom: 0;
         right: 0;
         z-index: 3;
