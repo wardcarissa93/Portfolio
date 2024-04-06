@@ -1,4 +1,4 @@
-<div 
+<!-- <div 
     *ngIf="project" 
     id="project-detail-div"
 >
@@ -31,4 +31,26 @@
             {{ tag.name }}{{ !last ? ', ' : '' }}
         </ng-container>
     </p>
+</div> -->
+<div *ngIf="project" id="project-detail-div">
+    <button type="button" (click)="goBack()">Go Back</button>
+    <h2>Details for {{ project.title | uppercase }}</h2>
+    <p>{{ project.body }}</p>
+    <button *ngIf="project.url" (click)="navigateToUrl(project.url)">Link to Project</button>
+    <p *ngIf="project.category" class="category-name">Category: {{ project.category.name }}</p>
+    <p *ngIf="project.tags.length > 0" class="tag-names">Tags:
+        <ng-container *ngFor="let tag of project.tags; let last = last">{{ tag.name }}{{ !last ? ', ' : '' }}</ng-container>
+    </p>
+
+    <!-- Display images -->
+    <div *ngIf="project.images && project.images.length > 0" class="image-container">
+        <img *ngFor="let image of project.images" [src]="'/assets/images/' + image" alt="Project Image" />
+    </div>
+
+    <!-- Display code snippet -->
+    <div *ngIf="project.code_snippet" class="code-snippet-div">
+        <pre>
+            <code>{{ project.code_snippet }}</code>
+        </pre>
+    </div>
 </div>
