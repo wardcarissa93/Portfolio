@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 body {
@@ -15,6 +16,11 @@ body {
     height: 3rem;
     background-color: #eff4ff;
     border-radius: 50%;
+}
+
+app-home {
+    position: relative;
+    top: 1.5rem;
 }
 
 app-projects {
