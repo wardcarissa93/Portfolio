@@ -128,7 +128,10 @@ export const PROJECTS: Project[] = [
       body: "FilmFindr is a React application that fetches movie data from the 'The Movie Database' (TMDB) API and displays it in a user-friendly manner. The UI includes buttons for adding movies to 'Favorites' and/or 'Watch List'. This data is managed in local storage. React-Redux is used to manage state throughout the app, allowing for smooth and efficient data management.",
       url: "http://filmfindr.ca",
       published_date: "2024",
-      images: null,
+      images: [
+        "filmfindr-watch-list.png",
+        "filmfindr-home-page.png",
+      ],
       category_id: 2,
       category: { id:  2, slug:  "front-end", name:  "Front End" },
       tags: [
