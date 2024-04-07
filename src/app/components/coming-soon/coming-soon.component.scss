@@ -1,0 +1,302 @@
+#coming-soon-component {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    top: 3.5rem;
+
+    @media (min-width: 960px) {
+        justify-content: space-between;
+    }
+
+    #fish-column-1,
+    #fish-column-2 {
+        display: none;
+
+        @media (min-width: 960px) {
+            display: block;
+            width: 304px;
+            height: 29.75rem;
+
+            .seaweed-container {
+                min-width: 12rem;
+                max-width: 12rem;
+                height: 100%;
+                position: relative;
+                left: 3.5rem;
+
+                .seaweed-plant {
+                    height: 32.75rem;
+                    width: 100%;
+                    position: relative;
+                    overflow: hidden;
+
+                    .leaf {
+                        position: relative;
+                        width: 1.5rem;
+                        height: 1rem;
+                    }
+                }
+
+                #seaweed-plant-1 {
+                    z-index: 1;
+
+                    .oval-1,
+                    .oval-2 {
+                        height: 8rem;
+                        width: 2rem;
+                        border-radius: 50%;
+                        border: 20px solid transparent;
+                        border-left: 10px solid #83923a;
+                        position: relative;
+                    }
+
+                    .oval-1 {
+                        left: 5.75rem;
+                    }
+
+                    .oval-2 {
+                        transform: rotate(180deg);
+                        left: 3.55rem;
+                    }
+
+                    #plant-1-oval-1 {
+                        top: 1rem;
+                    }
+
+                    #plant-1-oval-2 {
+                        bottom: 2.7rem;
+                    }
+
+                    #plant-1-oval-3 {
+                        bottom: 6.4rem;
+                    }
+
+                    #plant-1-oval-4 {
+                        bottom: 10.15rem;
+                    }
+
+                    #plant-1-oval-5 {
+                        bottom: 13.85rem;
+                    }
+
+                    .leaf-1 {
+                        background-color: #83923a;
+                        border-radius: 2rem 0;
+                        transform: rotate(-15deg);
+                        left: 6.75rem;
+                    }
+
+                    .leaf-2 {
+                        background-color: #83923a;
+                        border-radius: 0 2rem;
+                        transform: rotate(15deg);
+                        left: 5rem;
+                    }
+
+                    #plant-1-leaf-1 {
+                        bottom: 43.875rem;
+                    }
+
+                    #plant-1-leaf-2 {
+                        bottom: 38.25rem;
+                    }
+
+                    #plant-1-leaf-3 {
+                        bottom: 32.25rem;
+                    }
+
+                    #plant-1-leaf-4 {
+                        bottom: 26.5rem;
+                    }
+                }
+
+                #seaweed-plant-2 {
+                    bottom: 33rem;
+
+                    .oval-3,
+                    .oval-4 {
+                        height: 12rem;
+                        width: 4rem;
+                        border-radius: 50%;
+                        border: 7.5px solid transparent;
+                        border-left: 10px solid #4e721e;
+                        position: relative;
+                    }
+
+                    .oval-3 {
+                        left: 4rem;
+                    }
+
+                    .oval-4 {
+                        transform: rotate(180deg);
+                        left: 1.5rem;
+                    }
+
+                    #plant-2-oval-1 {
+                        top: 4rem;
+                    }
+
+                    #plant-2-oval-2 {
+                        top: 1.45rem;
+                    }
+
+                    #plant-2-oval-3 {
+                        bottom: 1.2rem;
+                    }
+
+                    .leaf-3 {
+                        background-color: #4e721e;
+                        border-radius: 2rem 0;
+                        transform: rotate(-15deg);
+                        left: 5rem;
+                    }
+
+                    .leaf-4 {
+                        background-color: #4e721e;
+                        border-radius: 0 2rem;
+                        transform: rotate(15deg);
+                        left: 4rem;
+                    }
+
+                    #plant-2-leaf-1 {
+                        bottom: 24.75rem;
+                    }
+
+                    #plant-2-leaf-2 {
+                        bottom: 15.25rem;
+                    }
+                }
+
+                #seaweed-plant-3 {
+                    bottom: 66rem;
+
+                    .oval-5,
+                    .oval-6 {
+                        height: 10rem;
+                        width: 5rem;
+                        border-radius: 50%;
+                        border: 15px solid transparent;
+                        border-left: 15px solid #1d5200;
+                        position: relative;
+                    }
+
+                    .oval-5 {
+                        left: 6.75rem;
+                    }
+
+                    .oval-6 {
+                        transform: rotate(180deg);
+                        left: 2.875rem;
+                    }
+
+                    #plant-3-oval-1 {
+                        top: 6rem;
+                    }
+
+                    #plant-3-oval-2 {
+                        top: 2.5rem;
+                    }
+
+                    #plant-3-oval-3 {
+                        bottom: 1.1rem;
+                    }
+
+                    .seaweed-tip-div {
+                        transform: rotate(40deg);
+                        position: relative;
+                        bottom: 33rem;
+                        left: 1rem;
+                        z-index: -1;
+
+                        .tip {
+                            height: 10rem;
+                            width: 5rem;
+                            border-radius: 50%;
+                            border: 1px solid transparent;
+                            border-right: 14px solid #1d5200;
+                        }
+
+                        .tip-cover {
+                            height: 5.1rem;
+                            width: 5rem;
+                            background-color: #113f8f;
+                            position: relative;
+                            left: 3.5rem;
+                            bottom: 5rem;
+                        }
+                    }
+
+                    .leaf-5 {
+                        background-color: #1d5200;
+                        border-radius: 0 2rem;
+                        transform: rotate(15deg);
+                        left: 7rem;
+                    }
+
+                    .leaf-6 {
+                        background-color: #1d5200;
+                        border-radius: 2rem 0;
+                        transform: rotate(-15deg);
+                        left: 8.25rem;
+                    }
+
+                    #plant-3-leaf-1 {
+                        bottom: 44.5rem;
+                    }
+
+                    #plant-3-leaf-2 {
+                        bottom: 36.75rem;
+                    }
+
+                    #plant-3-leaf-3 {
+                        bottom: 30rem;
+                    }
+                }
+            }
+
+            app-home-fish-3,
+            app-fish-2 {
+                position: relative;
+                z-index: 0;
+            }
+
+            app-home-fish-3 {
+                bottom: 22rem;
+            }
+
+            app-fish-2 {
+                bottom: 32rem;
+            }
+        }
+    }
+
+    #coming-soon-div {
+        padding-top: 2.5rem;
+        height: 27.5rem;
+
+        #coming-soon-bubble {
+            height: 18rem;
+            width: 18rem;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.8) 25%, rgba(17,63,143,1) 100%);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            row-gap: 1rem;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            bottom: 1rem;
+
+
+            h3 {
+                font-style: italic;
+                margin: 0;
+                color: #0f1132;
+                font-size: 20px;
+            }
+        }
+    }
+}
