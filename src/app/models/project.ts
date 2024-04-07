@@ -12,5 +12,5 @@ export interface Project {
     category_id: number | null;
     category: Category | null;
     tags: any;
-    code_snippet: string | null;
+    code_snippets: string[] | null;
 }

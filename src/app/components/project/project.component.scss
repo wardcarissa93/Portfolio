@@ -59,7 +59,7 @@
 
     .image-container {
         width: 100%;
-        max-width: 67.25rem;
+        max-width: 45rem;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
@@ -68,10 +68,10 @@
         row-gap: 1rem;
 
         @media (min-width: 720px) {
-            flex-direction: row;
-            justify-content: center;
-            align-items: flex-start;
-            column-gap: 1rem;
+            width: 43.75rem;
+            display: grid;
+            grid-template-columns: repeat(2, 21.375rem);
+            grid-gap: 1rem;
         }
 
         img {
@@ -86,12 +86,20 @@
         }
     }
 
-    .code-snippet-div {
+    .code-snippets-div {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
         width: 100%;
         max-width: 45rem;
-        background-color: #0f1132;
-        border: 2px solid #0f1132;
         margin: 1rem auto 0 auto;
-        overflow: scroll;
+
+        .code-snippet-div {
+            width: 100%;
+            max-width: 45rem;
+            background-color: #0f1132;
+            border: 2px solid #0f1132;
+            overflow: scroll;
+        }
     }
 }

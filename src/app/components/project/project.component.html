@@ -17,10 +17,12 @@
     <div *ngIf="project.images && project.images.length > 0" class="image-container">
         <img *ngFor="let image of project.images" [src]="'/assets/images/' + image" [alt]="'Image from ' + project.title" />
     </div>
-    <!-- Display code snippet -->
-    <div *ngIf="project.code_snippet" class="code-snippet-div">
-        <pre>
-            <code>{{ project.code_snippet }}</code>
-        </pre>
+    <!-- Display code snippets -->
+    <div *ngIf="project.code_snippets && project.code_snippets.length > 0" class="code-snippets-div">
+        <div *ngFor="let snippet of project.code_snippets" class="code-snippet-div">
+            <pre>
+                <code>{{ snippet }}</code>
+            </pre>
+        </div>
     </div>
 </div>
