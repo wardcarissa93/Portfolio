@@ -10,8 +10,8 @@ export const PROJECTS: Project[] = [
       url: null,
       published_date: "2024",
       images: null,
-      category_id: 2,
-      category: { id:  2, slug:  "front-end", name:  "Front End" },
+      category_id: 3,
+      category: { id: 3, slug: "full-stack", name: "Full Stack" },
       tags: [
         {
           id:  1,
@@ -34,9 +34,14 @@ export const PROJECTS: Project[] = [
       slug:  "expense-app",
       excerpt: "Excerpt for Expense App",
       body: "Body for Expense App",
-      url: null,
+      url: "https://expense-app.carissa-expense-app.xyz",
       published_date: "2024",
-      images: null,
+      images: [
+        "expense-app-login.png",
+        "expense-app-create.png",
+        "expense-app-error.png",
+        "expense-app-list.png",
+      ],
       category_id: 3,
       category: { id: 3, slug: "full-stack", name: "Full Stack" },
       tags: [
