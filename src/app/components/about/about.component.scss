@@ -6,7 +6,6 @@
     position: relative;
     overflow: hidden;
     top: 3.5rem;
-    // border: 2px solid yellow;
 
     @media (min-width: 960px) {
         justify-content: space-between;
@@ -27,14 +26,12 @@
                 height: 100%;
                 position: relative;
                 left: 3.5rem;
-                // border: 2px solid orange;
 
                 .seaweed-plant {
                     height: 43rem;
                     width: 100%;
                     position: relative;
                     overflow: hidden;
-                    // border: 2px solid cyan;
 
                     .leaf {
                         position: relative;
