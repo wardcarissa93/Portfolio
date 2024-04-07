@@ -5,9 +5,9 @@ export const PROJECTS: Project[] = [
       id:  1,
       title: "Novella",
       slug:  "novella",
-      excerpt: "Excerpt for Novella",
-      body: "Body for Novella",
-      url: null,
+      excerpt: "An e-commerce platform specializing in the sale of necklaces.",
+      body: "Novella is an e-commerce platform specializing in the sale of necklaces. Built primarily using C# with Identity Framework for authentication and role-based authorization, this was a 3-month group project incorporating Agile methodology. Unauthenticated users can browse products and create an account with the website. Recaptcha is incorporated into the registration process in order to Once their email has been verified via SendGrid, customers may add products to their cart and complete purchases via PayPal. An admin area allows authorized users to perform CRUD operations on the products, users, and orders in the database.",
+      url: "https://github.com/wardcarissa93/Novella",
       published_date: "2024",
       images: [
         "novella-home-page.png",
@@ -19,16 +19,22 @@ export const PROJECTS: Project[] = [
       category: { id: 3, slug: "full-stack", name: "Full Stack" },
       tags: [
         {
-          id:  1,
-          name:  "React",
-          slug:  "react",
-          "pivot": { "projects_id": 1, "tags_id": 1 }
+          id:  3,
+          name:  "C#",
+          slug:  "c-sharp",
+          "pivot": { "projects_id": 1, "tags_id": 3 }
         },
         {
-          id:  2,
-          name:  "Sass",
-          slug:  "sass",
-          "pivot": { "projects_id": 1, "tags_id": 2 }
+          id:  4,
+          name:  "SQL",
+          slug:  "sql",
+          "pivot": { "projects_id": 1, "tags_id": 4 }
+        },
+        {
+          id: 5,
+          name: "PayPal",
+          slug: "paypal",
+          "pivot": { "projects_id": 1, "tags_id": 5 }
         }
       ],
       code_snippets: null,
