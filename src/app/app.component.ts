@@ -1,69 +1,76 @@
+// Importing necessary Angular modules and classes
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
-import { Project } from './models/project';
-import { Category } from './models/category';
-import { Tag } from './models/tag';
+import { Router, NavigationEnd } from '@angular/router'; // Router for navigation events
+import { Project } from './models/project'; // Importing Project model
+import { Category } from './models/category'; // Importing Category model
+import { Tag } from './models/tag'; // Importing Tag model
 
+// Component decorator with selector, template, and styles
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'app-root', // Selector for the component in HTML
+  templateUrl: './app.component.html', // Template URL for the component
+  styleUrls: ['./app.component.scss'], // Style URLs for the component
 })
 export class AppComponent implements OnInit {
-  title = 'Portfolio';
-  year = new Date().getFullYear();
-  author = 'Carissa Ward';
-  menuOpen = false;
+  // Component properties
+  title = 'Portfolio'; // Title of the application
+  year = new Date().getFullYear(); // Current year for footer
+  author = 'Carissa Ward'; // Author name
+  menuOpen = false; // Flag to track menu state
 
-  categoryFilter: Category | undefined;
-  tagFilter: Tag | undefined;
+  // Filters for projects
+  categoryFilter: Category | undefined; // Selected category filter
+  tagFilter: Tag | undefined; // Selected tag filter
 
-  selectedProject?: Project;
+  // Selected project details
+  selectedProject?: Project; // Currently selected project
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {} // Injecting Router for navigation
 
   ngOnInit(): void {
+    // Subscribe to router events to close menu on navigation
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd && this.menuOpen) {
-        this.toggleMenu();
+        this.toggleMenu(); // Close menu if it's open on navigation end
       }
     });
   }
 
+  // Method to set category filter
   setCategoryFilter(category: Category): void {
-    if (this.categoryFilter === category) {
-      this.categoryFilter = undefined;
-    } else {
-      this.categoryFilter = category;
-    }
+    // Toggle category filter based on current state
+    this.categoryFilter = this.categoryFilter === category ? undefined : category;
   }
 
+  // Method to set tag filter
   setTagFilter(tag: Tag): void {
-    if (this.tagFilter === tag) {
-      this.tagFilter = undefined;
-    } else {
-      this.tagFilter = tag;
-    }
+    // Toggle tag filter based on current state
+    this.tagFilter = this.tagFilter === tag ? undefined : tag;
   }
 
+  // Method to clear all filters
   clearFilters(): void {
-    this.categoryFilter = undefined;
-    this.tagFilter = undefined;
+    this.categoryFilter = undefined; // Clear category filter
+    this.tagFilter = undefined; // Clear tag filter
   }
 
+  // Method to set the selected project
   setSelectedProject(project: Project): void {
-    this.selectedProject = project;
+    this.selectedProject = project; // Set the selected project
   }
 
-  clearSelectedProject() {
-    this.selectedProject = undefined;
+  // Method to clear the selected project
+  clearSelectedProject(): void {
+    this.selectedProject = undefined; // Clear the selected project
   }
 
+  // TrackBy function for *ngFor to improve rendering performance
   trackByFn(index: number, project: Project): number {
-    return project.id;
+    return project.id; // Return the project ID for tracking
   }
 
+  // Method to toggle the menu state
   toggleMenu(): void {
-    this.menuOpen = !this.menuOpen;
+    this.menuOpen = !this.menuOpen; // Toggle the menu state
   }
 }
