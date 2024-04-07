@@ -30,7 +30,7 @@
 
             #filter-buttons {
                 display: flex;
-                column-gap: 0.25rem;
+                column-gap: 0.5rem;
 
 
                 button {
@@ -66,6 +66,7 @@
             @media (min-width: 640px) {
                 flex-direction: row;
                 align-items: flex-start;
+                justify-content: center;
             }
 
             #categories {
@@ -81,12 +82,11 @@
             }
 
             #tags {
-                width: 100%;
-
                 app-tags {
                     display: flex;
                     flex-direction: column;
                     width: 100%;
+                    max-width: 48rem;
                     // align-items: center;
                 }
             }

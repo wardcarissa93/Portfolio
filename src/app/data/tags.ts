@@ -13,46 +13,31 @@ export const TAGS: Tag[] = [
     },
     {
         id: 3,
-        name: "MongoDB",
-        slug: "mongodb"
-    },
-    {
-        id: 4,
-        name: "Node.js",
-        slug: "node-js"
-    },
-    {
-        id: 5,
         name: "C#",
         slug: "c-sharp"
     },
     {
-        id: 6,
-        name: "MVC",
-        slug: "mvc"
-    },
-    {
-        id: 7,
+        id: 4,
         name: "SQL",
         slug: "sql"
     },
     {
-        id: 8,
+        id: 5,
         name: "PayPal",
         slug: "paypal"
     },
     {
-        id: 9,
+        id: 6,
         name: "JavaScript",
         slug: "javascript"
     },
     {
-        id: 10,
+        id: 7,
         name: "TypeScript",
         slug: "typescript"
     },
     {
-        id: 11,
+        id: 8,
         name: "Hono",
         slug: "hono"
     }
