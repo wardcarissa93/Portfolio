@@ -12,32 +12,32 @@ export const TAGS: Tag[] = [
         slug: "sass"
     },
     {
-        id: 5,
+        id: 3,
         name: "C#",
         slug: "c-sharp"
     },
     {
-        id: 7,
+        id: 4,
         name: "SQL",
         slug: "sql"
     },
     {
-        id: 8,
+        id: 5,
         name: "PayPal",
         slug: "paypal"
     },
     {
-        id: 9,
+        id: 6,
         name: "JavaScript",
         slug: "javascript"
     },
     {
-        id: 10,
+        id: 7,
         name: "TypeScript",
         slug: "typescript"
     },
     {
-        id: 11,
+        id: 8,
         name: "Hono",
         slug: "hono"
     }

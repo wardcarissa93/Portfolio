@@ -51,22 +51,22 @@ export const PROJECTS: Project[] = [
       category: { id: 3, slug: "full-stack", name: "Full Stack" },
       tags: [
         {
-          id: 7,
+          id: 4,
           name: "SQL",
           slug: "sql",
+          "pivot": { "projects_id": 2, "tags_id": 4 }
+        },
+        {
+          id: 7,
+          name: "TypeScript",
+          slug: "typescript",
           "pivot": { "projects_id": 2, "tags_id": 7 }
         },
         {
-          id: 10,
-          name: "TypeScript",
-          slug: "typescript",
-          "pivot": { "projects_id": 2, "tags_id": 10 }
-        },
-        {
-          id: 11,
+          id: 8,
           name: "Hono",
           slug: "hono",
-          "pivot": { "projects_id": 2, "tags_id": 11 }
+          "pivot": { "projects_id": 2, "tags_id": 8 }
         }
       ],
       code_snippets: [
@@ -261,10 +261,10 @@ export const PROJECTS: Project[] = [
       category: { id:  2, slug:  "front-end", name:  "Front End" },
       tags: [
         {
-          id:  9,
+          id:  6,
           name:  "JavaScript",
           slug:  "javascript",
-          "pivot": { "projects_id": 3, "tags_id": 9 }
+          "pivot": { "projects_id": 3, "tags_id": 6 }
         }
       ],
       code_snippets: [`...
