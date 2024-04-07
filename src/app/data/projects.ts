@@ -9,7 +9,12 @@ export const PROJECTS: Project[] = [
       body: "Body for Novella",
       url: null,
       published_date: "2024",
-      images: null,
+      images: [
+        "novella-home-page.png",
+        "novella-product-page.png",
+        "novella-cart-page.png",
+        "novella-checkout-page.png",
+      ],
       category_id: 3,
       category: { id: 3, slug: "full-stack", name: "Full Stack" },
       tags: [

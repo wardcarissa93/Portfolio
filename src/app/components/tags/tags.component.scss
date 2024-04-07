@@ -5,40 +5,46 @@ h4 {
 #tag-list {
     display: grid;
     grid-template-columns: repeat(3, 6rem);
-    width: 100%;
-    max-width: 31.25rem;
-    border-left: 1px solid #0f1132;
+    width: 18rem;
     
     @media (min-width: 400px) {
         grid-template-columns: repeat(4, 6rem);
+        width: 24rem;
     }
 
     @media (min-width: 500px) {
         grid-template-columns: repeat(5, 6rem);
+        width: 30rem;
     }
     
     @media (min-width: 640px) {
         grid-template-columns: repeat(3, 6rem);
+        width: 18rem;
     }
 
     @media (min-width: 740px) {
         grid-template-columns: repeat(4, 6rem);
+        width: 24rem;
     }
 
     @media (min-width: 840px) {
         grid-template-columns: repeat(5, 6rem);
+        width: 30rem;
     }
 
     @media (min-width: 940px) {
         grid-template-columns: repeat(6, 6rem);
+        width: 36rem;
     }
 
     @media(min-width: 1040px) {
         grid-template-columns: repeat(7, 6rem);
+        width: 42rem;
     }
 
     @media(min-width: 1140px) {
         grid-template-columns: repeat(8, 6rem);
+        width: 48rem;
     }
 
     .tag-filters {
