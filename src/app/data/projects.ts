@@ -87,7 +87,9 @@ export const PROJECTS: Project[] = [
         "https://github.com/wardcarissa93/OurBeautyReferralNetworkBackEnd"
       ],
       published_date: "2024",
-      images: [],
+      images: [
+        "obrn-home-page.png"
+      ],
       category_id: 3,
       category: { id:  3, slug:  "full-stack", name:  "Full Stack" },
       tags: [
@@ -122,7 +124,202 @@ export const PROJECTS: Project[] = [
           "pivot": { "projects_id": 3, "tags_id": 6 }
         }
       ],
-      code_snippets: [],
+      code_snippets: [
+        `
+        function ProfileBanner({ title, imagePath, name, email, phone, location, referralCode }) {
+          const [imageUrl, setImageUrl] = useState({ name: '', url: '' });
+          const [sasToken, setSasToken] = useState(null);
+      
+          // Fetch a single image by name
+          const fetchImageByName = useCallback(async (blobName) => {
+              try {
+                  const account = import.meta.env.VITE_STORAGE_ACCOUNT;
+                  const containerName = import.meta.env.VITE_STORAGE_CONTAINER;
+                  const blobServiceClient = new BlobServiceClient(\`https://\${account}.blob.core.windows.net/?\${sasToken}\`);
+                  const containerClient = blobServiceClient.getContainerClient(containerName);
+                  const blobClient = containerClient.getBlockBlobClient(blobName);
+                  const blobUrl = blobClient.url;
+                  setImageUrl({ name: blobName, url: blobUrl });
+              } catch (error) {
+                  console.error(error);
+              }
+          }, [sasToken]);
+      
+          useEffect(() => {
+              async function fetchData() {
+                  const token = await fetchSasToken();
+                  setSasToken(token);
+                  fetchImageByName(imagePath);
+              }
+              fetchData();
+          }, [fetchImageByName, setSasToken, imagePath])
+      
+          return (
+              <div className="profile-banner">
+                  <div className="profile-banner-top-container">
+                      <h1 className="profile-banner-title">{title}</h1>
+                      <div className="profile-banner-buttons">
+                      <NavLink to="/editprofile" className="button">EDIT PROFILE</NavLink>
+                      </div>
+                  </div>
+                  <div className="profile-banner-image-container">
+                      <img src={imageUrl.url || defaultProfile} alt="Profile Picture" className="profile-banner-picture"/>
+                  </div>
+                  <div className="profile-banner-details"> 
+                      <h2 className="profile-banner-name">{capitalizeFirstLetters(name)}</h2>
+                      <p><i className="fa-solid fa-user-plus"></i> {referralCode}</p>
+                      <p><i className="fa-solid fa-envelope"></i> {email}</p>
+                      <p><i className="fa-solid fa-phone"></i> {phone}</p>
+                      <p><i className="fa-solid fa-location-dot"></i> {capitalizeFirstLetters(location)}</p>
+                  </div>
+              </div>
+          );
+      }
+      `,
+      `
+      public async Task<string> GenerateJwtToken(string email)
+      {
+          var user = await _userManager.FindByEmailAsync(email);
+          if (user == null)
+          {
+              throw new ApplicationException("User not found.");
+          }
+
+          var claims = new List<Claim>
+          {
+              new Claim(ClaimTypes.Email, email),
+              new Claim(ClaimTypes.NameIdentifier, user.Id)
+          };
+
+          var roles = await _userRoleRepo.GetUserRolesAsync(email);
+          if (roles != null)
+          {
+              foreach (var role in roles)
+              {
+                  claims.Add(new Claim(ClaimTypes.Role, role));
+              }
+          }
+
+          var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+          var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+          var expires = DateTime.Now.AddDays(Convert.ToDouble(_configuration["Jwt:ExpireDays"]));
+
+          var token = new JwtSecurityToken(
+              _configuration["Jwt:Issuer"],
+              _configuration["Jwt:Issuer"],
+              claims,
+              expires: expires,
+              signingCredentials: creds
+          );
+
+          return new JwtSecurityTokenHandler().WriteToken(token);
+      }
+      `,
+      `
+      using Microsoft.AspNetCore.Authentication.JwtBearer;
+      using Microsoft.AspNetCore.Hosting;
+      using Microsoft.AspNetCore.Identity;
+      using Microsoft.EntityFrameworkCore;
+      using Microsoft.Extensions.Configuration;
+      using Microsoft.Extensions.DependencyInjection;
+      using Microsoft.Extensions.Hosting;
+      using Microsoft.IdentityModel.Tokens;
+      using Npgsql;
+      using OurBeautyReferralNetwork.Data;
+      using OurBeautyReferralNetwork.Models;
+      using OurBeautyReferralNetwork.Repositories;
+      using OurBeautyReferralNetwork.Utilities;
+      using Stripe;
+      using System;
+      using System.Net;
+      using System.Text;
+
+      var builder = WebApplication.CreateBuilder(args);
+
+      var connectionString = builder.Configuration["ConnectionStrings:DefaultConnection"];
+
+      Console.WriteLine("builder.Configuration[\"ConnectionStrings:DefaultConnection\"] = " + builder.Configuration["ConnectionStrings:DefaultConnection"]);
+
+      StripeConfiguration.ApiKey = builder.Configuration["StripeKey"];
+      Console.WriteLine("builder.Configuration[\"StripeKey\"] = " + builder.Configuration["StripeKey"]);
+
+      // Add services to the container.
+      builder.Services.AddDbContext<obrnDbContext>(options =>
+          options.UseNpgsql(connectionString));
+
+      builder.Services.AddDbContext<ApplicationDbContext>(options =>
+          options.UseNpgsql(connectionString));
+
+      builder.Services.AddScoped<CustomerRepo>();
+      builder.Services.AddScoped<BusinessRepo>();
+      builder.Services.AddScoped<RoleRepo>();
+      builder.Services.AddScoped<UserRoleRepo>();
+      builder.Services.AddScoped<JWTUtilities>();
+      builder.Services.AddScoped<ReferralRepo>();
+      builder.Services.AddScoped<UserRepo>();
+
+      builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+          .AddJwtBearer(options =>
+          {
+              options.TokenValidationParameters = new TokenValidationParameters
+              {
+                  ValidateIssuerSigningKey = true,
+                  IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtKey"])),
+                  ValidateIssuer = false,
+                  ValidateAudience = false,
+                  ValidateLifetime = true,
+                  ClockSkew = TimeSpan.Zero,
+              };
+          });
+
+      // Configure identity options
+      builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+      {
+          options.Password.RequireDigit = true;
+          options.Password.RequiredLength = 6;
+          options.Password.RequireNonAlphanumeric = false;
+          options.Password.RequireUppercase = true;
+          options.Password.RequireLowercase = true;
+      })
+      .AddRoles<IdentityRole>()
+      .AddEntityFrameworkStores<ApplicationDbContext>()
+      .AddDefaultTokenProviders();
+
+      builder.Services.AddControllers();
+      builder.Services.AddEndpointsApiExplorer();
+      builder.Services.AddSwaggerGen();
+
+      builder.Services.AddControllers().AddJsonOptions(options =>
+      {
+          options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+      });
+
+
+      builder.Services.AddCors(options =>
+      {
+          options.AddPolicy("AllowReactApp",
+              builder =>
+              {
+                  builder.WithOrigins("http://localhost:5173/")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+              });
+      });
+
+      var app = builder.Build();
+
+      if (app.Environment.IsDevelopment())
+      {
+          app.UseSwagger();
+          app.UseSwaggerUI();
+      }
+      app.UseCors("AllowReactApp");
+      app.UseAuthentication();
+      app.UseAuthorization();
+      app.MapControllers();
+      app.Run();
+      `
+      ],
     },
     {
       id:  4,
