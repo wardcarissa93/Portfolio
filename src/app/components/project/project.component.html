@@ -11,7 +11,8 @@
             </div>
         </div>
         <p>{{ project.body }}</p>
-        <button *ngIf="project.url" (click)="navigateToUrl(project.url)" class="link-to-project-button">Link to Project</button>
+        <button *ngIf="project.urls?.[0]" (click)="navigateToUrl(project.urls?.[0] || '')" class="link-to-project-button">Link to Project</button>
+        <button *ngIf="project.urls?.[1]" (click)="navigateToUrl(project.urls?.[1] || '')" class="link-to-project-button">Link to Project Backend</button>
     </div>
     <!-- Display images -->
     <div *ngIf="project.images && project.images.length > 0" class="image-container">
@@ -21,7 +22,7 @@
     <div *ngIf="project.code_snippets && project.code_snippets.length > 0" class="code-snippets-div">
         <div *ngFor="let snippet of project.code_snippets" class="code-snippet-div">
             <pre>
-                <code>{{ snippet }}</code>
+                <code>{{ snippet }}</code> 
             </pre>
         </div>
     </div>

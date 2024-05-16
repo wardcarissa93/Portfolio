@@ -303,10 +303,10 @@ export const PROJECTS: Project[] = [
     },
     {
       id: 3,
-      title: "Our Beauty Referral Network",
-      slug:  "our-beauty-referral-network",
+      title: "OBRN",
+      slug:  "obrn",
       excerpt: "A platform for clients and businesses in the beauty industry to make referrals and income.",
-      body: "This industry project was developed for Our Beauty Referral Network, a relatively new compnay which offers a platform for clients and businesses in beauty, wellness, and related industries to refer each other to their favorite service providers, while earning income for doing so. As a group of 5 students, we built a prototype of the website from scratch. The React front-end communicates with a PostgreSQL database via an API built with C#.",
+      body: "This industry project was developed for Our Beauty Referral Network, a relatively new company which offers a platform for clients and businesses in beauty, wellness, and related industries to refer each other to their favorite service providers, while earning income for doing so. As a group of 5 students, we built a prototype of the website from scratch. The React front-end communicates with a PostgreSQL database via an API built with C#.",
       urls: [
         "https://github.com/wardcarissa93/OBRN",
         "https://github.com/wardcarissa93/OurBeautyReferralNetworkBackEnd"
