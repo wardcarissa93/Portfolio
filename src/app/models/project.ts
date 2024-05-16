@@ -6,7 +6,7 @@ export interface Project {
     slug: string;
     excerpt: string;
     body: string;
-    url: string | null;
+    urls: string[] | null;
     published_date: string | null;
     images: string[] | null;
     category_id: number | null;
