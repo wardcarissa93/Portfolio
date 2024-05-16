@@ -12,7 +12,7 @@
         </div>
         <p>{{ project.body }}</p>
         <button *ngIf="project.urls?.[0]" (click)="navigateToUrl(project.urls?.[0] || '')" class="link-to-project-button">Link to Project</button>
-        <button *ngIf="project.urls?.[1]" (click)="navigateToUrl(project.urls?.[1] || '')" class="link-to-project-button">Link to Project Backend</button>
+        <button *ngIf="project.urls?.[1]" (click)="navigateToUrl(project.urls?.[1] || '')" class="link-to-project-backend-button">Link to Project Backend</button>
     </div>
     <!-- Display images -->
     <div *ngIf="project.images && project.images.length > 0" class="image-container">
