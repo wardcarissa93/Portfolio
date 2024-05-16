@@ -7,7 +7,9 @@ export const PROJECTS: Project[] = [
       slug:  "novella",
       excerpt: "An e-commerce platform specializing in the sale of necklaces.",
       body: "Novella is an e-commerce platform specializing in the sale of necklaces. Built primarily using C# with Identity Framework for authentication and role-based authorization, this was a 3-month group project incorporating Agile methodology. Unauthenticated users can browse products and create an account with the website. Recaptcha is incorporated into the registration process in order to ensure only valid users can access the website. Once their email has been verified via SendGrid, customers may add products to their cart and complete purchases via PayPal. An admin area allows authorized users to perform CRUD operations on the products, users, and orders in the database.",
-      url: "https://github.com/wardcarissa93/Novella",
+      urls: [
+        "https://github.com/wardcarissa93/Novella"
+      ],
       published_date: "2024",
       images: [
         "novella-home-page.png",
@@ -45,7 +47,9 @@ export const PROJECTS: Project[] = [
       slug:  "bird-tracker",
       excerpt: "A full-stack app for searching for birds and documenting sightings, including optional image upload.",
       body: "Bird Tracker is a serverless full-stack TypeScript application for learning about and recording birds seen in the wild. The React-based front-end requires users to authenticate themselves via Kinde prior to using the application. Once logged in, the user can search for birds of North America by name, fetching data via the Nuthatch API. They can also record birds they have seen in the wild, including the option to upload a photo if desired. User-friendly error handling prevents incorrect datatypes from being submitted to the PostgreSQL database, powered by Neon. Hono framework is also used to construct the back-end of this app.",
-      url: "https://d3negrz2kpioyi.cloudfront.net/",
+      urls: [
+        "https://d3negrz2kpioyi.cloudfront.net/"
+      ],
       published_date: "2024",
       images: [],
       category_id: 3,
@@ -78,7 +82,10 @@ export const PROJECTS: Project[] = [
       slug:  "our-beauty-referral-network",
       excerpt: "A platform for clients and businesses in the beauty industry to make referrals and income.",
       body: "This industry project was developed for Our Beauty Referral Network, a relatively new compnay which offers a platform for clients and businesses in beauty, wellness, and related industries to refer each other to their favorite service providers, while earning income for doing so. As a group of 5 students, we built a prototype of the website from scratch. The React front-end communicates with a PostgreSQL database via an API built with C#.",
-      url: "",
+      urls: [
+        "https://github.com/wardcarissa93/OBRN",
+        "https://github.com/wardcarissa93/OurBeautyReferralNetworkBackEnd"
+      ],
       published_date: "2024",
       images: [],
       category_id: 3,
@@ -123,7 +130,9 @@ export const PROJECTS: Project[] = [
       slug:  "film-findr",
       excerpt: "A React application that fetches movie data via an API and displays it in a user-friendly manner.",
       body: "FilmFindr is a React application that fetches movie data from the 'The Movie Database' (TMDB) API and displays it in a user-friendly manner. The UI includes buttons for adding movies to 'Favorites' and/or 'Watch List'. This data is managed in local storage. React-Redux is used to manage state throughout the app, allowing for smooth and efficient data management.",
-      url: "http://filmfindr.ca",
+      urls: [
+        "http://filmfindr.ca"
+      ],
       published_date: "2024",
       images: [
         "filmfindr-home-page.png",
