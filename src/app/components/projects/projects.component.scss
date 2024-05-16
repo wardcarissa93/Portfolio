@@ -30,8 +30,10 @@
 
             #filter-buttons {
                 display: flex;
+                justify-content: flex-end;
                 column-gap: 0.5rem;
-
+                border: 2px solid lime;
+                width: 10rem;
 
                 button {
                     height: 1.75rem;
@@ -49,6 +51,10 @@
                     width: 6rem;
                     border-radius: 0.875rem;
                     font-family: 'Fira', sans-serif;
+
+                    &.hidden {
+                        display: none;
+                    }
                 }
             }
         }
