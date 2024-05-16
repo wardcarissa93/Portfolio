@@ -79,7 +79,227 @@ export const PROJECTS: Project[] = [
           "pivot": { "projects_id": 2, "tags_id": 8 }
         }
       ],
-      code_snippets: [],
+      code_snippets: [
+        `
+        import { useState } from 'react';
+        import { createFileRoute, Link } from '@tanstack/react-router';
+        import SearchBar from '../../components/search-bar';
+        import '../../App.css';
+
+        interface Bird {
+          id: number;
+          name: string;
+          sciName: string;
+          images: string[];
+        }
+
+        export const Route = createFileRoute('/_authenticated/')({
+          component: HomePage,
+        })
+
+        function HomePage() {
+          const [searchResults, setSearchResults] = useState<Bird[]>([]);
+
+          const handleSearch = async (query: string) => {
+            try {
+              const searchResultsFor = document.getElementById('search-results-for');
+              if (searchResultsFor) {
+                searchResultsFor.textContent = "Loading search results...";
+              }
+
+              const apiUrl = \`https://nuthatch.lastelm.software/v2/birds?page=1&pageSize=100&region=North%20America&operator=AND&name=\${query}\`;
+              const res = await fetch(apiUrl, {
+                headers: {
+                  'api-key': import.meta.env.VITE_NUTHATCH_API_KEY,
+                },
+              });
+              if (!res.ok) {
+                throw new Error('Failed to fetch search results');
+              }
+              const data = await res.json();
+              console.log(data);
+
+              if (data["entities"].length === 0) {
+                if (searchResultsFor) {
+                  searchResultsFor.textContent = \`No search results matching '\${query}'. \`;
+                }
+              } else {
+                if (searchResultsFor) {
+                  searchResultsFor.textContent = \`Search results for '\${query}': \`;
+                }
+              }
+              setSearchResults(data["entities"]);
+            } catch (error) {
+              console.error('Error fetching search results: ', error);
+            }
+          };
+
+          return (
+            <div className="App">
+              <div id="search-title">
+                <h2>Search for North American Birds</h2>
+                <h2>by Common Name</h2>
+              </div>
+              <SearchBar onSearch={handleSearch} />
+              <p id="search-results-for"></p>
+              <div id="bird-results-div">
+                {searchResults.map((bird) => (
+                  <div key={bird.id} className="bird-result">
+                    {(bird.images && bird.images.length > 0) ? (
+                      <img src={bird.images[0]} alt={bird.name} className="bird-result-image"/>
+                    ) : (
+                      <div className="bird-result-no-image">
+                        <p>No Image Available</p>
+                      </div>
+                    )}
+                    <div className="bird-result-name">
+                      <p>{bird.name}</p>
+                      <p className="species-name">{bird.sciName}</p>
+                    </div>
+                    <Link to="/bird/$birdId" params={{ birdId: bird.id.toLocaleString() }}>
+                      <button className="more-info-button">More Info</button>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        }
+        `,
+        `
+        import { StackContext, Api, EventBus, StaticSite, Bucket } from "sst/constructs";
+
+        export function API({ stack }: StackContext) {
+          const audience = \`api-BirdApp-\${stack.stage}\`;
+
+          const assetsBucket = new Bucket(stack, "assets");
+
+          const api = new Api(stack, "api", {
+            authorizers: {
+              myAuthorizer: {
+                type: "jwt",
+                jwt: {
+                  issuer: "https://birdtracker.kinde.com",
+                  audience: [audience],
+                },
+              },
+            },
+            defaults: {
+              authorizer: "myAuthorizer",
+              function: {
+                environment: {
+                  DRIZZLE_DATABASE_URL: process.env.DRIZZLE_DATABASE_URL!,
+                }
+              }
+            },
+            routes: {
+              "GET /": {
+                authorizer: "none",
+                function: {
+                  handler: "packages/functions/src/lambda.handler",
+                }
+              },
+              "GET /birds": "packages/functions/src/birds.handler",
+              "POST /birds": "packages/functions/src/birds.handler",
+              "POST /signed-url": {
+                function: {
+                  environment: {
+                    ASSETS_BUCKET_NAME: assetsBucket.bucketName,
+                  },
+                  handler: "packages/functions/src/s3.handler",
+                }
+              }
+            },
+          });
+
+          api.attachPermissionsToRoute("POST /signed-url", [assetsBucket, "grantPut"]);
+
+          const web = new StaticSite(stack, "web", {
+            path: "packages/web",
+            buildOutput: "dist",
+            buildCommand: "npm run build",
+            environment: {
+              VITE_APP_API_URL: api.url,
+              VITE_APP_KINDE_AUDIENCE: audience,
+            },
+          })
+
+          stack.addOutputs({
+            ApiEndpoint: api.url,
+            WebsiteUrl: web.url,
+          });
+        }
+        `,
+        `
+        import { Hono } from 'hono';
+        import { handle } from 'hono/aws-lambda';
+
+        import { birds as birdsTable } from '@bird-tracker/core/db/schema/birds';
+        import { db } from "@bird-tracker/core/db";
+        import { eq, desc } from "drizzle-orm";
+
+        import { authMiddleware } from '@bird-tracker/core/auth';
+
+        const app = new Hono();
+
+        app.get("/birds", authMiddleware, async (c) => {
+            const userId = c.var.userId;
+            const birds = await db
+                .select()
+                .from(birdsTable)
+                .where(eq(birdsTable.userId, userId))
+                .orderBy(desc(birdsTable.date));
+            return c.json({ birds });
+        });
+
+        app.post("/birds", authMiddleware, async (c) => {
+            const userId = c.var.userId;
+            const body = await c.req.json();
+            const bird = {
+                ...body,
+                userId,
+            };
+            const newBird = await db.insert(birdsTable).values(bird).returning()
+            return c.json({ birds: newBird });
+        });
+
+        export const handler = handle(app);
+        `,
+        `
+        import { createMiddleware } from 'hono/factory'
+        import type { LambdaEvent, LambdaContext } from 'hono/aws-lambda'
+
+        type EnhancedLambdaEvent = LambdaEvent & {
+          requestContext?: {
+            authorizer?: {
+              jwt?: {
+                claims: {
+                  sub: string;
+                };
+              };
+            };
+          };
+        };
+
+        type AuthEnv = {
+          Variables: {
+            userId: string
+          },
+          Bindings: {
+            event: EnhancedLambdaEvent
+            context: LambdaContext 
+          }
+        }
+        export const authMiddleware = createMiddleware<AuthEnv>(async (c, next) => {
+          const userId = c.env.event.requestContext?.authorizer?.jwt?.claims.sub
+          if (!userId) {
+            return c.json({ error: "Unauthorized" }, 401)
+          }
+          c.set('userId', userId)
+          await next()
+        });
+        `
+      ],
     },
     {
       id: 3,
