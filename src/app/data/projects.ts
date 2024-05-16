@@ -51,7 +51,12 @@ export const PROJECTS: Project[] = [
         "https://d3negrz2kpioyi.cloudfront.net/"
       ],
       published_date: "2024",
-      images: [],
+      images: [
+        "bird-tracker-login.png",
+        "bird-tracker-search.png",
+        "bird-tracker-add-bird.png",
+        "bird-tracker-bird-list.png"
+      ],
       category_id: 3,
       category: { id: 3, slug: "full-stack", name: "Full Stack" },
       tags: [
